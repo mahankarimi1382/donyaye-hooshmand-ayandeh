@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نمایشگر تعاملی اسکرین‌شات‌های پلتفرم — دنیای هوشمند آینده</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
+
+        :root {
+            --bg: #FAF8F1;
+            --primary: #1B4332;
+            --primary-dark: #102820;
+            --accent: #C99A3A;
+            --surface: #FFFFFF;
+            --text: #17211C;
+            --text-muted: #52635A;
+            --border: #DDE5DE;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 340px;
+            background: var(--primary-dark);
+            color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid rgba(201, 154, 58, 0.3);
+            flex-shrink: 0;
+        }
+
+        .sidebar-header {
+            padding: 24px 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-title {
+            font-size: 18px;
+            font-weight: 800;
+            color: #F3CA68;
+            margin-bottom: 4px;
+        }
+
+        .brand-sub {
+            font-size: 13px;
+            color: #A3B8AD;
+        }
+
+        .downloads-box {
+            margin-top: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .dl-link {
+            background: rgba(201, 154, 58, 0.15);
+            color: #F3CA68;
+            border: 1px solid rgba(201, 154, 58, 0.3);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.2s;
+        }
+
+        .dl-link:hover {
+            background: rgba(201, 154, 58, 0.3);
+        }
+
+        .nav-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .nav-btn {
+            width: 100%;
+            text-align: right;
+            padding: 10px 14px;
+            background: transparent;
+            border: none;
+            border-radius: 8px;
+            color: #D3E0D8;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: inherit;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: #FFFFFF;
+        }
+
+        .nav-btn.active {
+            background: var(--primary);
+            color: #FFFFFF;
+            border-right: 4px solid var(--accent);
+            font-weight: 700;
+        }
+
+        .btn-num {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .btn-title {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Main Viewer Area */
+        .main-viewer {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+            background: #EFEFE9;
+        }
+
+        .content-scroll {
+            flex: 1;
+            overflow-y: auto;
+            padding: 30px 40px;
+        }
+
+        .item-header {
+            background: var(--surface);
+            padding: 24px 30px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        .badge {
+            background: rgba(61, 120, 85, 0.1);
+            color: var(--primary);
+            border: 1px solid rgba(61, 120, 85, 0.2);
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 6px;
+        }
+
+        .item-title-box h2 {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 4px;
+        }
+
+        .desc {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .url-link {
+            background: #F4F6F5;
+            border: 1px solid #D5DDD7;
+            padding: 8px 16px;
+            border-radius: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .url-link code {
+            font-family: monospace;
+            direction: ltr;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .view-modes-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .mode-tab {
+            padding: 8px 18px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: all 0.2s;
+        }
+
+        .mode-tab.active {
+            background: var(--primary);
+            color: #FFFFFF;
+            border-color: var(--primary);
+        }
+
+        .screenshot-container {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 16px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .responsive-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h1 class="brand-title">دنیای هوشمند آینده</h1>
+            <p class="brand-sub">مستند اسکرین‌شات ۱۸ صفحه پلتفرم</p>
+            <div class="downloads-box">
+                <a href="all_pages_screenshots.pdf" class="dl-link" download>
+                    <span>📄 دانلود فایل PDF جامع (A4)</span>
+                    <span>↓</span>
+                </a>
+                <a href="all_pages_slides.pdf" class="dl-link" download>
+                    <span>📊 دانلود فایل اسلایدهای PDF (16:9)</span>
+                    <span>↓</span>
+                </a>
+                <a href="all_pages_stitched.png" class="dl-link" download>
+                    <span>🖼️ دانلود تصویر پیوسته کامل (PNG)</span>
+                    <span>↓</span>
+                </a>
+                <a href="all_pages_grid.png" class="dl-link" download>
+                    <span>📑 دانلود پوستر گرید ۳×۶ (PNG)</span>
+                    <span>↓</span>
+                </a>
+            </div>
+        </div>
+        <div class="nav-list">
+            
+        <button class="nav-btn active" onclick="selectPage(0)">
+            <span class="btn-num">01</span>
+            <span class="btn-title">صفحه اصلی (Home Page)</span>
+        </button>
+        
+        <button class="nav-btn " onclick="selectPage(1)">
+            <span class="btn-num">02</span>
+            <span class="btn-title">کاتالوگ جامع نهاده‌ها (Products Catalog)</span>
+        </button>
+        
+        <button class="nav-btn " onclick="selectPage(2)">
+            <span class="btn-num">03</span>
+            <span class="btn-title">مشخصات فنی ذرت دامی (Corn Feed Detail)</span>
+        </button>
+        
+        <button class="nav-btn " onclick="selectPage(3)">
+            <span class="btn-num">04</span>
+            <span class="btn-title">مشخصات فنی کنجاله سویا (Soybean Meal Detail)</span>
+        </button>
+        
+        <button class="nav-btn " onclick="selectPage(4)">
+            <span class="btn-num">05</span>
+            <span class="btn-title">مشخصات فنی جو دامی (Barley Feed Detail)</span>
+        </button>
+        
+        <button class="nav-btn " onclick="selectPage(5)">
+            <span class="btn-num">06</span>
+            <span class="btn-title">سامانه صدور استعلام رسمی (RFQ Form)</span>
+        </button>
+        
+        <button class="nav-btn " onclick="selectPage(6)">
+            <span class="btn-num">07</span>
+            <span class="btn-title">سامانه رهگیری بارنامه و استعلام (Shipment Tracking)</span>
+        </button>
+        
+        <button class="nav-btn " onclick="selectPage(7)">
+            <span class="btn-num">08</span>
+            <span class="btn-title">کنترل کیفیت و آنالیز آزمایشگاهی (Quality Control)</span>
+        </button>
+        
+        <button class="nav-btn " onclick="selectPage(8)">
+            <span class="btn-num">09</span>
+            <span class="btn-title">درباره شرکت و توانمندی‌ها (About Us)</span>
+        </button>
+        
+        <button class="nav-btn " onclick="selectPage(9)">
+            <span class="btn-num">10</span>
+            <span class="btn-title">پایانه‌ها و سوابق تأمین (Export History)</span>
+        </button>
+        
+        <button class="nav-btn " onclick="selectPage(10)">
+            <span class="btn-num">11</span>
+            <span class="btn-title">خدمات انبارداری و لجستیک (Services)</span>
+        </button>
+        
+        <button class="nav-btn " onclick="selectPage(11)">
+            <span class="btn-num">12</span>
+            <span class="btn-title">خدمت تخصصی تأمین و سورسینگ (Sourcing)</span>
+        </button>
+        
+        <button class="nav-btn " onclick="selectPage(12)">
+            <span class="btn-num">13</span>
+            <span class="btn-title">خدمت حمل‌ونقل و ترانزیت (Freight & Transport)</span>
+        </button>
+        
+        <button class="nav-btn " onclick="selectPage(13)">
+            <span class="btn-num">14</span>
+            <span class="btn-title">کریدورها و شرایط تحویل (Markets & Incoterms)</span>
+        </button>
+        
+        <button class="nav-btn " onclick="selectPage(14)">
+            <span class="btn-num">15</span>
+            <span class="btn-title">تماس، دفاتر مرکزی و شعب (Contact & Offices)</span>
+        </button>
+        
+        <button class="nav-btn " onclick="selectPage(15)">
+            <span class="btn-num">16</span>
+            <span class="btn-title">شرایط و ضوابط بازرگانی (Terms of Trade)</span>
+        </button>
+        
+        <button class="nav-btn " onclick="selectPage(16)">
+            <span class="btn-num">17</span>
+            <span class="btn-title">حریم خصوصی و محرمانگی داده‌ها (Privacy Policy)</span>
+        </button>
+        
+        <button class="nav-btn " onclick="selectPage(17)">
+            <span class="btn-num">18</span>
+            <span class="btn-title">پورتال مشتریان و همکاران (Customer Portal)</span>
+        </button>
+        
+        </div>
+    </div>
+
+    <div class="main-viewer">
+        <div class="content-scroll">
+            
+        <div class="view-item" id="item-0" style="display: block;">
+            <div class="item-header">
+                <div class="item-title-box">
+                    <span class="badge">هاب تعاملی و ورود به سامانه</span>
+                    <h2>صفحه اصلی (Home Page)</h2>
+                    <p class="desc">هاب تعاملی استعلام فوری نرخ، شاخص‌های بازار غلات، معرفی شرکت و زنجیره تأمین نهاده‌های دامی</p>
+                </div>
+                <div class="item-url-box">
+                    <a href="http://localhost:3100/fa" target="_blank" class="url-link">
+                        🌐 باز کردن در سرور: <code>/fa</code> ↗
+                    </a>
+                </div>
+            </div>
+
+            <div class="view-modes-bar">
+                <button class="mode-tab active" onclick="switchMode(0, 'full')">صفحه کامل دسکتاپ (Full Page)</button>
+                <button class="mode-tab" onclick="switchMode(0, 'viewport')">نمای اولیه دسکتاپ (1440×900)</button>
+                <button class="mode-tab" onclick="switchMode(0, 'mobile')">نمای ریسپانسیو موبایل (390×844)</button>
+            </div>
+
+            <div class="screenshot-container">
+                <div class="screenshot-box full-box" id="mode-full-0">
+                    <img src="screenshots/01_home_full.png" alt="صفحه اصلی (Home Page)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box viewport-box" id="mode-viewport-0" style="display: none;">
+                    <img src="screenshots/01_home_viewport.png" alt="صفحه اصلی (Home Page)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box mobile-box" id="mode-mobile-0" style="display: none; max-width: 420px; margin: 0 auto;">
+                    <img src="screenshots/01_home_mobile.png" alt="صفحه اصلی (Home Page)" class="responsive-img" style="border-radius: 20px; border: 8px solid #1B4332;" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="view-item" id="item-1" style="display: none;">
+            <div class="item-header">
+                <div class="item-title-box">
+                    <span class="badge">جستجوی هوشمند Omnibox</span>
+                    <h2>کاتالوگ جامع نهاده‌ها (Products Catalog)</h2>
+                    <p class="desc">کاتالوگ جامع انواع غلات دامی، کنجاله‌های پروتئینی و مکمل‌ها با فیلتر آنالیز آزمایشگاهی و سوییچ گرید/جدول</p>
+                </div>
+                <div class="item-url-box">
+                    <a href="http://localhost:3100/fa/products" target="_blank" class="url-link">
+                        🌐 باز کردن در سرور: <code>/fa/products</code> ↗
+                    </a>
+                </div>
+            </div>
+
+            <div class="view-modes-bar">
+                <button class="mode-tab active" onclick="switchMode(1, 'full')">صفحه کامل دسکتاپ (Full Page)</button>
+                <button class="mode-tab" onclick="switchMode(1, 'viewport')">نمای اولیه دسکتاپ (1440×900)</button>
+                <button class="mode-tab" onclick="switchMode(1, 'mobile')">نمای ریسپانسیو موبایل (390×844)</button>
+            </div>
+
+            <div class="screenshot-container">
+                <div class="screenshot-box full-box" id="mode-full-1">
+                    <img src="screenshots/02_products_catalog_full.png" alt="کاتالوگ جامع نهاده‌ها (Products Catalog)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box viewport-box" id="mode-viewport-1" style="display: none;">
+                    <img src="screenshots/02_products_catalog_viewport.png" alt="کاتالوگ جامع نهاده‌ها (Products Catalog)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box mobile-box" id="mode-mobile-1" style="display: none; max-width: 420px; margin: 0 auto;">
+                    <img src="screenshots/02_products_catalog_mobile.png" alt="کاتالوگ جامع نهاده‌ها (Products Catalog)" class="responsive-img" style="border-radius: 20px; border: 8px solid #1B4332;" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="view-item" id="item-2" style="display: none;">
+            <div class="item-header">
+                <div class="item-title-box">
+                    <span class="badge">برگه آنالیز استاندارد</span>
+                    <h2>مشخصات فنی ذرت دامی (Corn Feed Detail)</h2>
+                    <p class="desc">آنالیز فیزیکی و شیمیایی، پروتئین، رطوبت، دانه‌بندی، سیلوهای تحویل بنادر و استعلام مستقیم با پرکردن خودکار</p>
+                </div>
+                <div class="item-url-box">
+                    <a href="http://localhost:3100/fa/products/prd_corn_feed" target="_blank" class="url-link">
+                        🌐 باز کردن در سرور: <code>/fa/products/prd_corn_feed</code> ↗
+                    </a>
+                </div>
+            </div>
+
+            <div class="view-modes-bar">
+                <button class="mode-tab active" onclick="switchMode(2, 'full')">صفحه کامل دسکتاپ (Full Page)</button>
+                <button class="mode-tab" onclick="switchMode(2, 'viewport')">نمای اولیه دسکتاپ (1440×900)</button>
+                <button class="mode-tab" onclick="switchMode(2, 'mobile')">نمای ریسپانسیو موبایل (390×844)</button>
+            </div>
+
+            <div class="screenshot-container">
+                <div class="screenshot-box full-box" id="mode-full-2">
+                    <img src="screenshots/03_product_detail_corn_full.png" alt="مشخصات فنی ذرت دامی (Corn Feed Detail)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box viewport-box" id="mode-viewport-2" style="display: none;">
+                    <img src="screenshots/03_product_detail_corn_viewport.png" alt="مشخصات فنی ذرت دامی (Corn Feed Detail)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box mobile-box" id="mode-mobile-2" style="display: none; max-width: 420px; margin: 0 auto;">
+                    <img src="screenshots/03_product_detail_corn_mobile.png" alt="مشخصات فنی ذرت دامی (Corn Feed Detail)" class="responsive-img" style="border-radius: 20px; border: 8px solid #1B4332;" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="view-item" id="item-3" style="display: none;">
+            <div class="item-header">
+                <div class="item-title-box">
+                    <span class="badge">پروتئین ۴۴٪ و اسیدهای آمینه</span>
+                    <h2>مشخصات فنی کنجاله سویا (Soybean Meal Detail)</h2>
+                    <p class="desc">کنجاله پلت سویا ۴۴٪ وارداتی آمریکای جنوبی، پروفایل اسیدهای آمینه و گواهی‌های سلامت و بهداشت</p>
+                </div>
+                <div class="item-url-box">
+                    <a href="http://localhost:3100/fa/products/prd_soybean_meal" target="_blank" class="url-link">
+                        🌐 باز کردن در سرور: <code>/fa/products/prd_soybean_meal</code> ↗
+                    </a>
+                </div>
+            </div>
+
+            <div class="view-modes-bar">
+                <button class="mode-tab active" onclick="switchMode(3, 'full')">صفحه کامل دسکتاپ (Full Page)</button>
+                <button class="mode-tab" onclick="switchMode(3, 'viewport')">نمای اولیه دسکتاپ (1440×900)</button>
+                <button class="mode-tab" onclick="switchMode(3, 'mobile')">نمای ریسپانسیو موبایل (390×844)</button>
+            </div>
+
+            <div class="screenshot-container">
+                <div class="screenshot-box full-box" id="mode-full-3">
+                    <img src="screenshots/04_product_detail_soybean_full.png" alt="مشخصات فنی کنجاله سویا (Soybean Meal Detail)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box viewport-box" id="mode-viewport-3" style="display: none;">
+                    <img src="screenshots/04_product_detail_soybean_viewport.png" alt="مشخصات فنی کنجاله سویا (Soybean Meal Detail)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box mobile-box" id="mode-mobile-3" style="display: none; max-width: 420px; margin: 0 auto;">
+                    <img src="screenshots/04_product_detail_soybean_mobile.png" alt="مشخصات فنی کنجاله سویا (Soybean Meal Detail)" class="responsive-img" style="border-radius: 20px; border: 8px solid #1B4332;" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="view-item" id="item-4" style="display: none;">
+            <div class="item-header">
+                <div class="item-title-box">
+                    <span class="badge">غلات استاندارد خزر</span>
+                    <h2>مشخصات فنی جو دامی (Barley Feed Detail)</h2>
+                    <p class="desc">جو دامی وارداتی استاندارد روسیه و قزاقستان با دانه‌بندی مطلوب، وزن حجمی استاندارد و انبارش سیلو</p>
+                </div>
+                <div class="item-url-box">
+                    <a href="http://localhost:3100/fa/products/prd_barley_feed" target="_blank" class="url-link">
+                        🌐 باز کردن در سرور: <code>/fa/products/prd_barley_feed</code> ↗
+                    </a>
+                </div>
+            </div>
+
+            <div class="view-modes-bar">
+                <button class="mode-tab active" onclick="switchMode(4, 'full')">صفحه کامل دسکتاپ (Full Page)</button>
+                <button class="mode-tab" onclick="switchMode(4, 'viewport')">نمای اولیه دسکتاپ (1440×900)</button>
+                <button class="mode-tab" onclick="switchMode(4, 'mobile')">نمای ریسپانسیو موبایل (390×844)</button>
+            </div>
+
+            <div class="screenshot-container">
+                <div class="screenshot-box full-box" id="mode-full-4">
+                    <img src="screenshots/05_product_detail_barley_full.png" alt="مشخصات فنی جو دامی (Barley Feed Detail)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box viewport-box" id="mode-viewport-4" style="display: none;">
+                    <img src="screenshots/05_product_detail_barley_viewport.png" alt="مشخصات فنی جو دامی (Barley Feed Detail)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box mobile-box" id="mode-mobile-4" style="display: none; max-width: 420px; margin: 0 auto;">
+                    <img src="screenshots/05_product_detail_barley_mobile.png" alt="مشخصات فنی جو دامی (Barley Feed Detail)" class="responsive-img" style="border-radius: 20px; border: 8px solid #1B4332;" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="view-item" id="item-5" style="display: none;">
+            <div class="item-header">
+                <div class="item-title-box">
+                    <span class="badge">تعهد پاسخ‌گویی ۲ ساعته</span>
+                    <h2>سامانه صدور استعلام رسمی (RFQ Form)</h2>
+                    <p class="desc">کاربرگ صدور پیش‌فاکتور با اعتبارسنجی ارگونومیک، اتصال مستقیم به API، حفاظت Honeypot و تولید کد یکتای رسمی</p>
+                </div>
+                <div class="item-url-box">
+                    <a href="http://localhost:3100/fa/rfq" target="_blank" class="url-link">
+                        🌐 باز کردن در سرور: <code>/fa/rfq</code> ↗
+                    </a>
+                </div>
+            </div>
+
+            <div class="view-modes-bar">
+                <button class="mode-tab active" onclick="switchMode(5, 'full')">صفحه کامل دسکتاپ (Full Page)</button>
+                <button class="mode-tab" onclick="switchMode(5, 'viewport')">نمای اولیه دسکتاپ (1440×900)</button>
+                <button class="mode-tab" onclick="switchMode(5, 'mobile')">نمای ریسپانسیو موبایل (390×844)</button>
+            </div>
+
+            <div class="screenshot-container">
+                <div class="screenshot-box full-box" id="mode-full-5">
+                    <img src="screenshots/06_rfq_inquiry_form_full.png" alt="سامانه صدور استعلام رسمی (RFQ Form)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box viewport-box" id="mode-viewport-5" style="display: none;">
+                    <img src="screenshots/06_rfq_inquiry_form_viewport.png" alt="سامانه صدور استعلام رسمی (RFQ Form)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box mobile-box" id="mode-mobile-5" style="display: none; max-width: 420px; margin: 0 auto;">
+                    <img src="screenshots/06_rfq_inquiry_form_mobile.png" alt="سامانه صدور استعلام رسمی (RFQ Form)" class="responsive-img" style="border-radius: 20px; border: 8px solid #1B4332;" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="view-item" id="item-6" style="display: none;">
+            <div class="item-header">
+                <div class="item-title-box">
+                    <span class="badge">رهگیری ۴ مرحله‌ای ترانزیت</span>
+                    <h2>سامانه رهگیری بارنامه و استعلام (Shipment Tracking)</h2>
+                    <p class="desc">رهگیری زنده وضعیت محموله، بار کشتی و گمرک با خط زمانی چهارمرحله‌ای و نمونه‌های تستی قابل آزمایش</p>
+                </div>
+                <div class="item-url-box">
+                    <a href="http://localhost:3100/fa/track" target="_blank" class="url-link">
+                        🌐 باز کردن در سرور: <code>/fa/track</code> ↗
+                    </a>
+                </div>
+            </div>
+
+            <div class="view-modes-bar">
+                <button class="mode-tab active" onclick="switchMode(6, 'full')">صفحه کامل دسکتاپ (Full Page)</button>
+                <button class="mode-tab" onclick="switchMode(6, 'viewport')">نمای اولیه دسکتاپ (1440×900)</button>
+                <button class="mode-tab" onclick="switchMode(6, 'mobile')">نمای ریسپانسیو موبایل (390×844)</button>
+            </div>
+
+            <div class="screenshot-container">
+                <div class="screenshot-box full-box" id="mode-full-6">
+                    <img src="screenshots/07_track_shipment_full.png" alt="سامانه رهگیری بارنامه و استعلام (Shipment Tracking)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box viewport-box" id="mode-viewport-6" style="display: none;">
+                    <img src="screenshots/07_track_shipment_viewport.png" alt="سامانه رهگیری بارنامه و استعلام (Shipment Tracking)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box mobile-box" id="mode-mobile-6" style="display: none; max-width: 420px; margin: 0 auto;">
+                    <img src="screenshots/07_track_shipment_mobile.png" alt="سامانه رهگیری بارنامه و استعلام (Shipment Tracking)" class="responsive-img" style="border-radius: 20px; border: 8px solid #1B4332;" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="view-item" id="item-7" style="display: none;">
+            <div class="item-header">
+                <div class="item-title-box">
+                    <span class="badge">چک‌سام امنیتی SHA-256</span>
+                    <h2>کنترل کیفیت و آنالیز آزمایشگاهی (Quality Control)</h2>
+                    <p class="desc">استانداردهای ملی و بین‌المللی، فرآیند نمونه‌برداری در بندر و چک‌سام رمزنگاری‌شده آنالیزها با آکاردئون علمی</p>
+                </div>
+                <div class="item-url-box">
+                    <a href="http://localhost:3100/fa/quality" target="_blank" class="url-link">
+                        🌐 باز کردن در سرور: <code>/fa/quality</code> ↗
+                    </a>
+                </div>
+            </div>
+
+            <div class="view-modes-bar">
+                <button class="mode-tab active" onclick="switchMode(7, 'full')">صفحه کامل دسکتاپ (Full Page)</button>
+                <button class="mode-tab" onclick="switchMode(7, 'viewport')">نمای اولیه دسکتاپ (1440×900)</button>
+                <button class="mode-tab" onclick="switchMode(7, 'mobile')">نمای ریسپانسیو موبایل (390×844)</button>
+            </div>
+
+            <div class="screenshot-container">
+                <div class="screenshot-box full-box" id="mode-full-7">
+                    <img src="screenshots/08_quality_assays_faq_full.png" alt="کنترل کیفیت و آنالیز آزمایشگاهی (Quality Control)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box viewport-box" id="mode-viewport-7" style="display: none;">
+                    <img src="screenshots/08_quality_assays_faq_viewport.png" alt="کنترل کیفیت و آنالیز آزمایشگاهی (Quality Control)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box mobile-box" id="mode-mobile-7" style="display: none; max-width: 420px; margin: 0 auto;">
+                    <img src="screenshots/08_quality_assays_faq_mobile.png" alt="کنترل کیفیت و آنالیز آزمایشگاهی (Quality Control)" class="responsive-img" style="border-radius: 20px; border: 8px solid #1B4332;" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="view-item" id="item-8" style="display: none;">
+            <div class="item-header">
+                <div class="item-title-box">
+                    <span class="badge">هاب‌های استراتژیک بنادر</span>
+                    <h2>درباره شرکت و توانمندی‌ها (About Us)</h2>
+                    <p class="desc">تاریخچه تأسیس، مأموریت سازمانی، هیئت‌مدیره و پایانه‌های اختصاصی شرکت در بندر امام خمینی و بندر امیرآباد</p>
+                </div>
+                <div class="item-url-box">
+                    <a href="http://localhost:3100/fa/about" target="_blank" class="url-link">
+                        🌐 باز کردن در سرور: <code>/fa/about</code> ↗
+                    </a>
+                </div>
+            </div>
+
+            <div class="view-modes-bar">
+                <button class="mode-tab active" onclick="switchMode(8, 'full')">صفحه کامل دسکتاپ (Full Page)</button>
+                <button class="mode-tab" onclick="switchMode(8, 'viewport')">نمای اولیه دسکتاپ (1440×900)</button>
+                <button class="mode-tab" onclick="switchMode(8, 'mobile')">نمای ریسپانسیو موبایل (390×844)</button>
+            </div>
+
+            <div class="screenshot-container">
+                <div class="screenshot-box full-box" id="mode-full-8">
+                    <img src="screenshots/09_about_company_full.png" alt="درباره شرکت و توانمندی‌ها (About Us)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box viewport-box" id="mode-viewport-8" style="display: none;">
+                    <img src="screenshots/09_about_company_viewport.png" alt="درباره شرکت و توانمندی‌ها (About Us)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box mobile-box" id="mode-mobile-8" style="display: none; max-width: 420px; margin: 0 auto;">
+                    <img src="screenshots/09_about_company_mobile.png" alt="درباره شرکت و توانمندی‌ها (About Us)" class="responsive-img" style="border-radius: 20px; border: 8px solid #1B4332;" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="view-item" id="item-9" style="display: none;">
+            <div class="item-header">
+                <div class="item-title-box">
+                    <span class="badge">سوابق ترخیص و بارگیری</span>
+                    <h2>پایانه‌ها و سوابق تأمین (Export History)</h2>
+                    <p class="desc">پیشینه ترخیص و بارگیری سالانه در بنادر شمالی و جنوبی، ظرفیت‌های تناژ و کریدورهای حمل‌ونقل</p>
+                </div>
+                <div class="item-url-box">
+                    <a href="http://localhost:3100/fa/about/export-history" target="_blank" class="url-link">
+                        🌐 باز کردن در سرور: <code>/fa/about/export-history</code> ↗
+                    </a>
+                </div>
+            </div>
+
+            <div class="view-modes-bar">
+                <button class="mode-tab active" onclick="switchMode(9, 'full')">صفحه کامل دسکتاپ (Full Page)</button>
+                <button class="mode-tab" onclick="switchMode(9, 'viewport')">نمای اولیه دسکتاپ (1440×900)</button>
+                <button class="mode-tab" onclick="switchMode(9, 'mobile')">نمای ریسپانسیو موبایل (390×844)</button>
+            </div>
+
+            <div class="screenshot-container">
+                <div class="screenshot-box full-box" id="mode-full-9">
+                    <img src="screenshots/10_export_history_full.png" alt="پایانه‌ها و سوابق تأمین (Export History)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box viewport-box" id="mode-viewport-9" style="display: none;">
+                    <img src="screenshots/10_export_history_viewport.png" alt="پایانه‌ها و سوابق تأمین (Export History)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box mobile-box" id="mode-mobile-9" style="display: none; max-width: 420px; margin: 0 auto;">
+                    <img src="screenshots/10_export_history_mobile.png" alt="پایانه‌ها و سوابق تأمین (Export History)" class="responsive-img" style="border-radius: 20px; border: 8px solid #1B4332;" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="view-item" id="item-10" style="display: none;">
+            <div class="item-header">
+                <div class="item-title-box">
+                    <span class="badge">سیلوهای ذخیره‌سازی مکانیزه</span>
+                    <h2>خدمات انبارداری و لجستیک (Services)</h2>
+                    <p class="desc">سیلوهای مکانیزه ذخیره‌سازی، ترخیص اختصاصی بنادر، تخلیه اسکله، ناوگان فله‌بر و مدیریت زنجیره تأمین</p>
+                </div>
+                <div class="item-url-box">
+                    <a href="http://localhost:3100/fa/services" target="_blank" class="url-link">
+                        🌐 باز کردن در سرور: <code>/fa/services</code> ↗
+                    </a>
+                </div>
+            </div>
+
+            <div class="view-modes-bar">
+                <button class="mode-tab active" onclick="switchMode(10, 'full')">صفحه کامل دسکتاپ (Full Page)</button>
+                <button class="mode-tab" onclick="switchMode(10, 'viewport')">نمای اولیه دسکتاپ (1440×900)</button>
+                <button class="mode-tab" onclick="switchMode(10, 'mobile')">نمای ریسپانسیو موبایل (390×844)</button>
+            </div>
+
+            <div class="screenshot-container">
+                <div class="screenshot-box full-box" id="mode-full-10">
+                    <img src="screenshots/11_services_logistics_full.png" alt="خدمات انبارداری و لجستیک (Services)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box viewport-box" id="mode-viewport-10" style="display: none;">
+                    <img src="screenshots/11_services_logistics_viewport.png" alt="خدمات انبارداری و لجستیک (Services)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box mobile-box" id="mode-mobile-10" style="display: none; max-width: 420px; margin: 0 auto;">
+                    <img src="screenshots/11_services_logistics_mobile.png" alt="خدمات انبارداری و لجستیک (Services)" class="responsive-img" style="border-radius: 20px; border: 8px solid #1B4332;" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="view-item" id="item-11" style="display: none;">
+            <div class="item-header">
+                <div class="item-title-box">
+                    <span class="badge">تأمین مستقیم بین‌المللی</span>
+                    <h2>خدمت تخصصی تأمین و سورسینگ (Sourcing)</h2>
+                    <p class="desc">مذاکره، بازرگانی و تأمین مستقیم نهاده‌های خوراک دام از شرکت‌های پیشرو روسیه، برزیل و قزاقستان</p>
+                </div>
+                <div class="item-url-box">
+                    <a href="http://localhost:3100/fa/services/sourcing" target="_blank" class="url-link">
+                        🌐 باز کردن در سرور: <code>/fa/services/sourcing</code> ↗
+                    </a>
+                </div>
+            </div>
+
+            <div class="view-modes-bar">
+                <button class="mode-tab active" onclick="switchMode(11, 'full')">صفحه کامل دسکتاپ (Full Page)</button>
+                <button class="mode-tab" onclick="switchMode(11, 'viewport')">نمای اولیه دسکتاپ (1440×900)</button>
+                <button class="mode-tab" onclick="switchMode(11, 'mobile')">نمای ریسپانسیو موبایل (390×844)</button>
+            </div>
+
+            <div class="screenshot-container">
+                <div class="screenshot-box full-box" id="mode-full-11">
+                    <img src="screenshots/12_service_sourcing_full.png" alt="خدمت تخصصی تأمین و سورسینگ (Sourcing)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box viewport-box" id="mode-viewport-11" style="display: none;">
+                    <img src="screenshots/12_service_sourcing_viewport.png" alt="خدمت تخصصی تأمین و سورسینگ (Sourcing)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box mobile-box" id="mode-mobile-11" style="display: none; max-width: 420px; margin: 0 auto;">
+                    <img src="screenshots/12_service_sourcing_mobile.png" alt="خدمت تخصصی تأمین و سورسینگ (Sourcing)" class="responsive-img" style="border-radius: 20px; border: 8px solid #1B4332;" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="view-item" id="item-12" style="display: none;">
+            <div class="item-header">
+                <div class="item-title-box">
+                    <span class="badge">حمل چندوجهی ترکیبی</span>
+                    <h2>خدمت حمل‌ونقل و ترانزیت (Freight & Transport)</h2>
+                    <p class="desc">پوشش ناوگان کشتیرانی کاسپین و خلیج فارس، ترانزیت ریلی سیلو به سیلو و خطوط کامیونی استاندارد</p>
+                </div>
+                <div class="item-url-box">
+                    <a href="http://localhost:3100/fa/services/logistics" target="_blank" class="url-link">
+                        🌐 باز کردن در سرور: <code>/fa/services/logistics</code> ↗
+                    </a>
+                </div>
+            </div>
+
+            <div class="view-modes-bar">
+                <button class="mode-tab active" onclick="switchMode(12, 'full')">صفحه کامل دسکتاپ (Full Page)</button>
+                <button class="mode-tab" onclick="switchMode(12, 'viewport')">نمای اولیه دسکتاپ (1440×900)</button>
+                <button class="mode-tab" onclick="switchMode(12, 'mobile')">نمای ریسپانسیو موبایل (390×844)</button>
+            </div>
+
+            <div class="screenshot-container">
+                <div class="screenshot-box full-box" id="mode-full-12">
+                    <img src="screenshots/13_service_logistics_full.png" alt="خدمت حمل‌ونقل و ترانزیت (Freight & Transport)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box viewport-box" id="mode-viewport-12" style="display: none;">
+                    <img src="screenshots/13_service_logistics_viewport.png" alt="خدمت حمل‌ونقل و ترانزیت (Freight & Transport)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box mobile-box" id="mode-mobile-12" style="display: none; max-width: 420px; margin: 0 auto;">
+                    <img src="screenshots/13_service_logistics_mobile.png" alt="خدمت حمل‌ونقل و ترانزیت (Freight & Transport)" class="responsive-img" style="border-radius: 20px; border: 8px solid #1B4332;" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="view-item" id="item-13" style="display: none;">
+            <div class="item-header">
+                <div class="item-title-box">
+                    <span class="badge">اینکوترمز ۲۰۲۰ و کریدورها</span>
+                    <h2>کریدورها و شرایط تحویل (Markets & Incoterms)</h2>
+                    <p class="desc">مسیرهای واردات دریای خزر و خلیج فارس با جدول قوانین اینکوترمز ۲۰۲۰ و ایزولاسیون Bidi کدهای بنادر</p>
+                </div>
+                <div class="item-url-box">
+                    <a href="http://localhost:3100/fa/markets" target="_blank" class="url-link">
+                        🌐 باز کردن در سرور: <code>/fa/markets</code> ↗
+                    </a>
+                </div>
+            </div>
+
+            <div class="view-modes-bar">
+                <button class="mode-tab active" onclick="switchMode(13, 'full')">صفحه کامل دسکتاپ (Full Page)</button>
+                <button class="mode-tab" onclick="switchMode(13, 'viewport')">نمای اولیه دسکتاپ (1440×900)</button>
+                <button class="mode-tab" onclick="switchMode(13, 'mobile')">نمای ریسپانسیو موبایل (390×844)</button>
+            </div>
+
+            <div class="screenshot-container">
+                <div class="screenshot-box full-box" id="mode-full-13">
+                    <img src="screenshots/14_markets_corridors_full.png" alt="کریدورها و شرایط تحویل (Markets & Incoterms)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box viewport-box" id="mode-viewport-13" style="display: none;">
+                    <img src="screenshots/14_markets_corridors_viewport.png" alt="کریدورها و شرایط تحویل (Markets & Incoterms)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box mobile-box" id="mode-mobile-13" style="display: none; max-width: 420px; margin: 0 auto;">
+                    <img src="screenshots/14_markets_corridors_mobile.png" alt="کریدورها و شرایط تحویل (Markets & Incoterms)" class="responsive-img" style="border-radius: 20px; border: 8px solid #1B4332;" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="view-item" id="item-14" style="display: none;">
+            <div class="item-header">
+                <div class="item-title-box">
+                    <span class="badge">پاسخ‌گویی سریع سازمانی</span>
+                    <h2>تماس، دفاتر مرکزی و شعب (Contact & Offices)</h2>
+                    <p class="desc">اطلاعات تماس دفتر مرکزی تهران، شعبه بندر امام خمینی و پایانه امیرآباد با فرم تماس متصل به سامانه CRM</p>
+                </div>
+                <div class="item-url-box">
+                    <a href="http://localhost:3100/fa/contact" target="_blank" class="url-link">
+                        🌐 باز کردن در سرور: <code>/fa/contact</code> ↗
+                    </a>
+                </div>
+            </div>
+
+            <div class="view-modes-bar">
+                <button class="mode-tab active" onclick="switchMode(14, 'full')">صفحه کامل دسکتاپ (Full Page)</button>
+                <button class="mode-tab" onclick="switchMode(14, 'viewport')">نمای اولیه دسکتاپ (1440×900)</button>
+                <button class="mode-tab" onclick="switchMode(14, 'mobile')">نمای ریسپانسیو موبایل (390×844)</button>
+            </div>
+
+            <div class="screenshot-container">
+                <div class="screenshot-box full-box" id="mode-full-14">
+                    <img src="screenshots/15_contact_offices_full.png" alt="تماس، دفاتر مرکزی و شعب (Contact & Offices)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box viewport-box" id="mode-viewport-14" style="display: none;">
+                    <img src="screenshots/15_contact_offices_viewport.png" alt="تماس، دفاتر مرکزی و شعب (Contact & Offices)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box mobile-box" id="mode-mobile-14" style="display: none; max-width: 420px; margin: 0 auto;">
+                    <img src="screenshots/15_contact_offices_mobile.png" alt="تماس، دفاتر مرکزی و شعب (Contact & Offices)" class="responsive-img" style="border-radius: 20px; border: 8px solid #1B4332;" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="view-item" id="item-15" style="display: none;">
+            <div class="item-header">
+                <div class="item-title-box">
+                    <span class="badge">چارچوب رسمی حقوقی</span>
+                    <h2>شرایط و ضوابط بازرگانی (Terms of Trade)</h2>
+                    <p class="desc">چارچوب قراردادهای تجاری B2B، تضمین کیفیت، ضوابط دموراژ و فرآیند قانونی تسویه حساب</p>
+                </div>
+                <div class="item-url-box">
+                    <a href="http://localhost:3100/fa/terms" target="_blank" class="url-link">
+                        🌐 باز کردن در سرور: <code>/fa/terms</code> ↗
+                    </a>
+                </div>
+            </div>
+
+            <div class="view-modes-bar">
+                <button class="mode-tab active" onclick="switchMode(15, 'full')">صفحه کامل دسکتاپ (Full Page)</button>
+                <button class="mode-tab" onclick="switchMode(15, 'viewport')">نمای اولیه دسکتاپ (1440×900)</button>
+                <button class="mode-tab" onclick="switchMode(15, 'mobile')">نمای ریسپانسیو موبایل (390×844)</button>
+            </div>
+
+            <div class="screenshot-container">
+                <div class="screenshot-box full-box" id="mode-full-15">
+                    <img src="screenshots/16_terms_of_trade_full.png" alt="شرایط و ضوابط بازرگانی (Terms of Trade)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box viewport-box" id="mode-viewport-15" style="display: none;">
+                    <img src="screenshots/16_terms_of_trade_viewport.png" alt="شرایط و ضوابط بازرگانی (Terms of Trade)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box mobile-box" id="mode-mobile-15" style="display: none; max-width: 420px; margin: 0 auto;">
+                    <img src="screenshots/16_terms_of_trade_mobile.png" alt="شرایط و ضوابط بازرگانی (Terms of Trade)" class="responsive-img" style="border-radius: 20px; border: 8px solid #1B4332;" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="view-item" id="item-16" style="display: none;">
+            <div class="item-header">
+                <div class="item-title-box">
+                    <span class="badge">امنیت داده‌های تجاری</span>
+                    <h2>حریم خصوصی و محرمانگی داده‌ها (Privacy Policy)</h2>
+                    <p class="desc">سند رسمی محرمانگی اطلاعات تجاری، امنیت استعلام‌ها و سازوکارهای رمزنگاری داده‌ها</p>
+                </div>
+                <div class="item-url-box">
+                    <a href="http://localhost:3100/fa/privacy" target="_blank" class="url-link">
+                        🌐 باز کردن در سرور: <code>/fa/privacy</code> ↗
+                    </a>
+                </div>
+            </div>
+
+            <div class="view-modes-bar">
+                <button class="mode-tab active" onclick="switchMode(16, 'full')">صفحه کامل دسکتاپ (Full Page)</button>
+                <button class="mode-tab" onclick="switchMode(16, 'viewport')">نمای اولیه دسکتاپ (1440×900)</button>
+                <button class="mode-tab" onclick="switchMode(16, 'mobile')">نمای ریسپانسیو موبایل (390×844)</button>
+            </div>
+
+            <div class="screenshot-container">
+                <div class="screenshot-box full-box" id="mode-full-16">
+                    <img src="screenshots/17_privacy_policy_full.png" alt="حریم خصوصی و محرمانگی داده‌ها (Privacy Policy)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box viewport-box" id="mode-viewport-16" style="display: none;">
+                    <img src="screenshots/17_privacy_policy_viewport.png" alt="حریم خصوصی و محرمانگی داده‌ها (Privacy Policy)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box mobile-box" id="mode-mobile-16" style="display: none; max-width: 420px; margin: 0 auto;">
+                    <img src="screenshots/17_privacy_policy_mobile.png" alt="حریم خصوصی و محرمانگی داده‌ها (Privacy Policy)" class="responsive-img" style="border-radius: 20px; border: 8px solid #1B4332;" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="view-item" id="item-17" style="display: none;">
+            <div class="item-header">
+                <div class="item-title-box">
+                    <span class="badge">پیشخوان اختصاصی B2B</span>
+                    <h2>پورتال مشتریان و همکاران (Customer Portal)</h2>
+                    <p class="desc">ورود به پیشخوان کاربری اختصاصی برای پیگیری قراردادها، صدور فاکتور و رهگیری بارهای جاری</p>
+                </div>
+                <div class="item-url-box">
+                    <a href="http://localhost:3100/fa/portal" target="_blank" class="url-link">
+                        🌐 باز کردن در سرور: <code>/fa/portal</code> ↗
+                    </a>
+                </div>
+            </div>
+
+            <div class="view-modes-bar">
+                <button class="mode-tab active" onclick="switchMode(17, 'full')">صفحه کامل دسکتاپ (Full Page)</button>
+                <button class="mode-tab" onclick="switchMode(17, 'viewport')">نمای اولیه دسکتاپ (1440×900)</button>
+                <button class="mode-tab" onclick="switchMode(17, 'mobile')">نمای ریسپانسیو موبایل (390×844)</button>
+            </div>
+
+            <div class="screenshot-container">
+                <div class="screenshot-box full-box" id="mode-full-17">
+                    <img src="screenshots/18_customer_portal_full.png" alt="پورتال مشتریان و همکاران (Customer Portal)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box viewport-box" id="mode-viewport-17" style="display: none;">
+                    <img src="screenshots/18_customer_portal_viewport.png" alt="پورتال مشتریان و همکاران (Customer Portal)" class="responsive-img" />
+                </div>
+                <div class="screenshot-box mobile-box" id="mode-mobile-17" style="display: none; max-width: 420px; margin: 0 auto;">
+                    <img src="screenshots/18_customer_portal_mobile.png" alt="پورتال مشتریان و همکاران (Customer Portal)" class="responsive-img" style="border-radius: 20px; border: 8px solid #1B4332;" />
+                </div>
+            </div>
+        </div>
+        
+        </div>
+    </div>
+
+    <script>
+        function selectPage(index) {
+            document.querySelectorAll('.view-item').forEach((item, i) => {
+                item.style.display = (i === index) ? 'block' : 'none';
+            });
+            document.querySelectorAll('.nav-btn').forEach((btn, i) => {
+                if (i === index) {
+                    btn.classList.add('active');
+                    btn.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+
+        function switchMode(pageIndex, mode) {
+            const item = document.getElementById('item-' + pageIndex);
+            item.querySelectorAll('.mode-tab').forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+
+            item.querySelector('#mode-full-' + pageIndex).style.display = (mode === 'full') ? 'block' : 'none';
+            item.querySelector('#mode-viewport-' + pageIndex).style.display = (mode === 'viewport') ? 'block' : 'none';
+            item.querySelector('#mode-mobile-' + pageIndex).style.display = (mode === 'mobile') ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>

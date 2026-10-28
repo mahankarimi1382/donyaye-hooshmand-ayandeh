@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>اسلایدهای تمامی صفحات — دنیای هوشمند آینده</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700;800&display=swap');
+
+        @page {
+            size: A4 landscape;
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background: #102820;
+            color: #FFFFFF;
+        }
+
+        .slide {
+            width: 297mm;
+            height: 210mm;
+            padding: 12mm 15mm;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            page-break-after: always;
+            break-after: page;
+            background: #102820;
+            position: relative;
+        }
+
+        .slide-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid rgba(201, 154, 58, 0.4);
+            padding-bottom: 8px;
+            margin-bottom: 8px;
+        }
+
+        .slide-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .slide-num {
+            background: #C99A3A;
+            color: #102820;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-weight: 800;
+            font-size: 14px;
+        }
+
+        .slide-badge {
+            background: rgba(61, 120, 85, 0.3);
+            border: 1px solid rgba(61, 120, 85, 0.6);
+            color: #A3E0BA;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .slide-title {
+            font-size: 18px;
+            font-weight: 800;
+            color: #FFFFFF;
+        }
+
+        .slide-url code {
+            background: rgba(255, 255, 255, 0.1);
+            color: #F3CA68;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-family: monospace;
+            direction: ltr;
+            display: inline-block;
+        }
+
+        .slide-content {
+            flex: 1;
+            background: #FAF8F1;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid #DDE5DE;
+        }
+
+        .browser-bar {
+            background: #E8ECE9;
+            padding: 6px 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid #D5DDD7;
+        }
+
+        .dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+        }
+        .red { background: #FF5F56; }
+        .yellow { background: #FFBD2E; }
+        .green { background: #27C93F; }
+
+        .url-input {
+            flex: 1;
+            background: #FFFFFF;
+            border: 1px solid #D0D8D2;
+            border-radius: 5px;
+            padding: 3px 10px;
+            font-size: 11px;
+            color: #52635A;
+            font-family: monospace;
+            direction: ltr;
+            text-align: left;
+        }
+
+        .img-wrapper {
+            flex: 1;
+            overflow: hidden;
+            background: #FFFFFF;
+        }
+
+        .slide-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            display: block;
+        }
+
+        .slide-footer {
+            padding-top: 8px;
+            font-size: 12px;
+            color: #A3B8AD;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-meta">
+                    <span class="slide-num">01 / 18</span>
+                    <span class="slide-badge">هاب تعاملی و ورود به سامانه</span>
+                    <h2 class="slide-title">صفحه اصلی (Home Page)</h2>
+                </div>
+                <div class="slide-url">
+                    <code>https://donyaye-hooshmand.ir/fa</code>
+                </div>
+            </div>
+            <div class="slide-content">
+                <div class="browser-bar">
+                    <div class="dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="url-input">🔒 https://donyaye-hooshmand.ir/fa</div>
+                </div>
+                <div class="img-wrapper">
+                    <img src="screenshots/01_home_viewport.png" alt="صفحه اصلی (Home Page)" class="slide-img" />
+                </div>
+            </div>
+            <div class="slide-footer">
+                <p>هاب تعاملی استعلام فوری نرخ، شاخص‌های بازار غلات، معرفی شرکت و زنجیره تأمین نهاده‌های دامی</p>
+            </div>
+        </div>
+        
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-meta">
+                    <span class="slide-num">02 / 18</span>
+                    <span class="slide-badge">جستجوی هوشمند Omnibox</span>
+                    <h2 class="slide-title">کاتالوگ جامع نهاده‌ها (Products Catalog)</h2>
+                </div>
+                <div class="slide-url">
+                    <code>https://donyaye-hooshmand.ir/fa/products</code>
+                </div>
+            </div>
+            <div class="slide-content">
+                <div class="browser-bar">
+                    <div class="dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="url-input">🔒 https://donyaye-hooshmand.ir/fa/products</div>
+                </div>
+                <div class="img-wrapper">
+                    <img src="screenshots/02_products_catalog_viewport.png" alt="کاتالوگ جامع نهاده‌ها (Products Catalog)" class="slide-img" />
+                </div>
+            </div>
+            <div class="slide-footer">
+                <p>کاتالوگ جامع انواع غلات دامی، کنجاله‌های پروتئینی و مکمل‌ها با فیلتر آنالیز آزمایشگاهی و سوییچ گرید/جدول</p>
+            </div>
+        </div>
+        
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-meta">
+                    <span class="slide-num">03 / 18</span>
+                    <span class="slide-badge">برگه آنالیز استاندارد</span>
+                    <h2 class="slide-title">مشخصات فنی ذرت دامی (Corn Feed Detail)</h2>
+                </div>
+                <div class="slide-url">
+                    <code>https://donyaye-hooshmand.ir/fa/products/prd_corn_feed</code>
+                </div>
+            </div>
+            <div class="slide-content">
+                <div class="browser-bar">
+                    <div class="dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="url-input">🔒 https://donyaye-hooshmand.ir/fa/products/prd_corn_feed</div>
+                </div>
+                <div class="img-wrapper">
+                    <img src="screenshots/03_product_detail_corn_viewport.png" alt="مشخصات فنی ذرت دامی (Corn Feed Detail)" class="slide-img" />
+                </div>
+            </div>
+            <div class="slide-footer">
+                <p>آنالیز فیزیکی و شیمیایی، پروتئین، رطوبت، دانه‌بندی، سیلوهای تحویل بنادر و استعلام مستقیم با پرکردن خودکار</p>
+            </div>
+        </div>
+        
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-meta">
+                    <span class="slide-num">04 / 18</span>
+                    <span class="slide-badge">پروتئین ۴۴٪ و اسیدهای آمینه</span>
+                    <h2 class="slide-title">مشخصات فنی کنجاله سویا (Soybean Meal Detail)</h2>
+                </div>
+                <div class="slide-url">
+                    <code>https://donyaye-hooshmand.ir/fa/products/prd_soybean_meal</code>
+                </div>
+            </div>
+            <div class="slide-content">
+                <div class="browser-bar">
+                    <div class="dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="url-input">🔒 https://donyaye-hooshmand.ir/fa/products/prd_soybean_meal</div>
+                </div>
+                <div class="img-wrapper">
+                    <img src="screenshots/04_product_detail_soybean_viewport.png" alt="مشخصات فنی کنجاله سویا (Soybean Meal Detail)" class="slide-img" />
+                </div>
+            </div>
+            <div class="slide-footer">
+                <p>کنجاله پلت سویا ۴۴٪ وارداتی آمریکای جنوبی، پروفایل اسیدهای آمینه و گواهی‌های سلامت و بهداشت</p>
+            </div>
+        </div>
+        
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-meta">
+                    <span class="slide-num">05 / 18</span>
+                    <span class="slide-badge">غلات استاندارد خزر</span>
+                    <h2 class="slide-title">مشخصات فنی جو دامی (Barley Feed Detail)</h2>
+                </div>
+                <div class="slide-url">
+                    <code>https://donyaye-hooshmand.ir/fa/products/prd_barley_feed</code>
+                </div>
+            </div>
+            <div class="slide-content">
+                <div class="browser-bar">
+                    <div class="dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="url-input">🔒 https://donyaye-hooshmand.ir/fa/products/prd_barley_feed</div>
+                </div>
+                <div class="img-wrapper">
+                    <img src="screenshots/05_product_detail_barley_viewport.png" alt="مشخصات فنی جو دامی (Barley Feed Detail)" class="slide-img" />
+                </div>
+            </div>
+            <div class="slide-footer">
+                <p>جو دامی وارداتی استاندارد روسیه و قزاقستان با دانه‌بندی مطلوب، وزن حجمی استاندارد و انبارش سیلو</p>
+            </div>
+        </div>
+        
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-meta">
+                    <span class="slide-num">06 / 18</span>
+                    <span class="slide-badge">تعهد پاسخ‌گویی ۲ ساعته</span>
+                    <h2 class="slide-title">سامانه صدور استعلام رسمی (RFQ Form)</h2>
+                </div>
+                <div class="slide-url">
+                    <code>https://donyaye-hooshmand.ir/fa/rfq</code>
+                </div>
+            </div>
+            <div class="slide-content">
+                <div class="browser-bar">
+                    <div class="dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="url-input">🔒 https://donyaye-hooshmand.ir/fa/rfq</div>
+                </div>
+                <div class="img-wrapper">
+                    <img src="screenshots/06_rfq_inquiry_form_viewport.png" alt="سامانه صدور استعلام رسمی (RFQ Form)" class="slide-img" />
+                </div>
+            </div>
+            <div class="slide-footer">
+                <p>کاربرگ صدور پیش‌فاکتور با اعتبارسنجی ارگونومیک، اتصال مستقیم به API، حفاظت Honeypot و تولید کد یکتای رسمی</p>
+            </div>
+        </div>
+        
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-meta">
+                    <span class="slide-num">07 / 18</span>
+                    <span class="slide-badge">رهگیری ۴ مرحله‌ای ترانزیت</span>
+                    <h2 class="slide-title">سامانه رهگیری بارنامه و استعلام (Shipment Tracking)</h2>
+                </div>
+                <div class="slide-url">
+                    <code>https://donyaye-hooshmand.ir/fa/track</code>
+                </div>
+            </div>
+            <div class="slide-content">
+                <div class="browser-bar">
+                    <div class="dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="url-input">🔒 https://donyaye-hooshmand.ir/fa/track</div>
+                </div>
+                <div class="img-wrapper">
+                    <img src="screenshots/07_track_shipment_viewport.png" alt="سامانه رهگیری بارنامه و استعلام (Shipment Tracking)" class="slide-img" />
+                </div>
+            </div>
+            <div class="slide-footer">
+                <p>رهگیری زنده وضعیت محموله، بار کشتی و گمرک با خط زمانی چهارمرحله‌ای و نمونه‌های تستی قابل آزمایش</p>
+            </div>
+        </div>
+        
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-meta">
+                    <span class="slide-num">08 / 18</span>
+                    <span class="slide-badge">چک‌سام امنیتی SHA-256</span>
+                    <h2 class="slide-title">کنترل کیفیت و آنالیز آزمایشگاهی (Quality Control)</h2>
+                </div>
+                <div class="slide-url">
+                    <code>https://donyaye-hooshmand.ir/fa/quality</code>
+                </div>
+            </div>
+            <div class="slide-content">
+                <div class="browser-bar">
+                    <div class="dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="url-input">🔒 https://donyaye-hooshmand.ir/fa/quality</div>
+                </div>
+                <div class="img-wrapper">
+                    <img src="screenshots/08_quality_assays_faq_viewport.png" alt="کنترل کیفیت و آنالیز آزمایشگاهی (Quality Control)" class="slide-img" />
+                </div>
+            </div>
+            <div class="slide-footer">
+                <p>استانداردهای ملی و بین‌المللی، فرآیند نمونه‌برداری در بندر و چک‌سام رمزنگاری‌شده آنالیزها با آکاردئون علمی</p>
+            </div>
+        </div>
+        
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-meta">
+                    <span class="slide-num">09 / 18</span>
+                    <span class="slide-badge">هاب‌های استراتژیک بنادر</span>
+                    <h2 class="slide-title">درباره شرکت و توانمندی‌ها (About Us)</h2>
+                </div>
+                <div class="slide-url">
+                    <code>https://donyaye-hooshmand.ir/fa/about</code>
+                </div>
+            </div>
+            <div class="slide-content">
+                <div class="browser-bar">
+                    <div class="dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="url-input">🔒 https://donyaye-hooshmand.ir/fa/about</div>
+                </div>
+                <div class="img-wrapper">
+                    <img src="screenshots/09_about_company_viewport.png" alt="درباره شرکت و توانمندی‌ها (About Us)" class="slide-img" />
+                </div>
+            </div>
+            <div class="slide-footer">
+                <p>تاریخچه تأسیس، مأموریت سازمانی، هیئت‌مدیره و پایانه‌های اختصاصی شرکت در بندر امام خمینی و بندر امیرآباد</p>
+            </div>
+        </div>
+        
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-meta">
+                    <span class="slide-num">10 / 18</span>
+                    <span class="slide-badge">سوابق ترخیص و بارگیری</span>
+                    <h2 class="slide-title">پایانه‌ها و سوابق تأمین (Export History)</h2>
+                </div>
+                <div class="slide-url">
+                    <code>https://donyaye-hooshmand.ir/fa/about/export-history</code>
+                </div>
+            </div>
+            <div class="slide-content">
+                <div class="browser-bar">
+                    <div class="dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="url-input">🔒 https://donyaye-hooshmand.ir/fa/about/export-history</div>
+                </div>
+                <div class="img-wrapper">
+                    <img src="screenshots/10_export_history_viewport.png" alt="پایانه‌ها و سوابق تأمین (Export History)" class="slide-img" />
+                </div>
+            </div>
+            <div class="slide-footer">
+                <p>پیشینه ترخیص و بارگیری سالانه در بنادر شمالی و جنوبی، ظرفیت‌های تناژ و کریدورهای حمل‌ونقل</p>
+            </div>
+        </div>
+        
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-meta">
+                    <span class="slide-num">11 / 18</span>
+                    <span class="slide-badge">سیلوهای ذخیره‌سازی مکانیزه</span>
+                    <h2 class="slide-title">خدمات انبارداری و لجستیک (Services)</h2>
+                </div>
+                <div class="slide-url">
+                    <code>https://donyaye-hooshmand.ir/fa/services</code>
+                </div>
+            </div>
+            <div class="slide-content">
+                <div class="browser-bar">
+                    <div class="dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="url-input">🔒 https://donyaye-hooshmand.ir/fa/services</div>
+                </div>
+                <div class="img-wrapper">
+                    <img src="screenshots/11_services_logistics_viewport.png" alt="خدمات انبارداری و لجستیک (Services)" class="slide-img" />
+                </div>
+            </div>
+            <div class="slide-footer">
+                <p>سیلوهای مکانیزه ذخیره‌سازی، ترخیص اختصاصی بنادر، تخلیه اسکله، ناوگان فله‌بر و مدیریت زنجیره تأمین</p>
+            </div>
+        </div>
+        
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-meta">
+                    <span class="slide-num">12 / 18</span>
+                    <span class="slide-badge">تأمین مستقیم بین‌المللی</span>
+                    <h2 class="slide-title">خدمت تخصصی تأمین و سورسینگ (Sourcing)</h2>
+                </div>
+                <div class="slide-url">
+                    <code>https://donyaye-hooshmand.ir/fa/services/sourcing</code>
+                </div>
+            </div>
+            <div class="slide-content">
+                <div class="browser-bar">
+                    <div class="dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="url-input">🔒 https://donyaye-hooshmand.ir/fa/services/sourcing</div>
+                </div>
+                <div class="img-wrapper">
+                    <img src="screenshots/12_service_sourcing_viewport.png" alt="خدمت تخصصی تأمین و سورسینگ (Sourcing)" class="slide-img" />
+                </div>
+            </div>
+            <div class="slide-footer">
+                <p>مذاکره، بازرگانی و تأمین مستقیم نهاده‌های خوراک دام از شرکت‌های پیشرو روسیه، برزیل و قزاقستان</p>
+            </div>
+        </div>
+        
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-meta">
+                    <span class="slide-num">13 / 18</span>
+                    <span class="slide-badge">حمل چندوجهی ترکیبی</span>
+                    <h2 class="slide-title">خدمت حمل‌ونقل و ترانزیت (Freight & Transport)</h2>
+                </div>
+                <div class="slide-url">
+                    <code>https://donyaye-hooshmand.ir/fa/services/logistics</code>
+                </div>
+            </div>
+            <div class="slide-content">
+                <div class="browser-bar">
+                    <div class="dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="url-input">🔒 https://donyaye-hooshmand.ir/fa/services/logistics</div>
+                </div>
+                <div class="img-wrapper">
+                    <img src="screenshots/13_service_logistics_viewport.png" alt="خدمت حمل‌ونقل و ترانزیت (Freight & Transport)" class="slide-img" />
+                </div>
+            </div>
+            <div class="slide-footer">
+                <p>پوشش ناوگان کشتیرانی کاسپین و خلیج فارس، ترانزیت ریلی سیلو به سیلو و خطوط کامیونی استاندارد</p>
+            </div>
+        </div>
+        
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-meta">
+                    <span class="slide-num">14 / 18</span>
+                    <span class="slide-badge">اینکوترمز ۲۰۲۰ و کریدورها</span>
+                    <h2 class="slide-title">کریدورها و شرایط تحویل (Markets & Incoterms)</h2>
+                </div>
+                <div class="slide-url">
+                    <code>https://donyaye-hooshmand.ir/fa/markets</code>
+                </div>
+            </div>
+            <div class="slide-content">
+                <div class="browser-bar">
+                    <div class="dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="url-input">🔒 https://donyaye-hooshmand.ir/fa/markets</div>
+                </div>
+                <div class="img-wrapper">
+                    <img src="screenshots/14_markets_corridors_viewport.png" alt="کریدورها و شرایط تحویل (Markets & Incoterms)" class="slide-img" />
+                </div>
+            </div>
+            <div class="slide-footer">
+                <p>مسیرهای واردات دریای خزر و خلیج فارس با جدول قوانین اینکوترمز ۲۰۲۰ و ایزولاسیون Bidi کدهای بنادر</p>
+            </div>
+        </div>
+        
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-meta">
+                    <span class="slide-num">15 / 18</span>
+                    <span class="slide-badge">پاسخ‌گویی سریع سازمانی</span>
+                    <h2 class="slide-title">تماس، دفاتر مرکزی و شعب (Contact & Offices)</h2>
+                </div>
+                <div class="slide-url">
+                    <code>https://donyaye-hooshmand.ir/fa/contact</code>
+                </div>
+            </div>
+            <div class="slide-content">
+                <div class="browser-bar">
+                    <div class="dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="url-input">🔒 https://donyaye-hooshmand.ir/fa/contact</div>
+                </div>
+                <div class="img-wrapper">
+                    <img src="screenshots/15_contact_offices_viewport.png" alt="تماس، دفاتر مرکزی و شعب (Contact & Offices)" class="slide-img" />
+                </div>
+            </div>
+            <div class="slide-footer">
+                <p>اطلاعات تماس دفتر مرکزی تهران، شعبه بندر امام خمینی و پایانه امیرآباد با فرم تماس متصل به سامانه CRM</p>
+            </div>
+        </div>
+        
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-meta">
+                    <span class="slide-num">16 / 18</span>
+                    <span class="slide-badge">چارچوب رسمی حقوقی</span>
+                    <h2 class="slide-title">شرایط و ضوابط بازرگانی (Terms of Trade)</h2>
+                </div>
+                <div class="slide-url">
+                    <code>https://donyaye-hooshmand.ir/fa/terms</code>
+                </div>
+            </div>
+            <div class="slide-content">
+                <div class="browser-bar">
+                    <div class="dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="url-input">🔒 https://donyaye-hooshmand.ir/fa/terms</div>
+                </div>
+                <div class="img-wrapper">
+                    <img src="screenshots/16_terms_of_trade_viewport.png" alt="شرایط و ضوابط بازرگانی (Terms of Trade)" class="slide-img" />
+                </div>
+            </div>
+            <div class="slide-footer">
+                <p>چارچوب قراردادهای تجاری B2B، تضمین کیفیت، ضوابط دموراژ و فرآیند قانونی تسویه حساب</p>
+            </div>
+        </div>
+        
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-meta">
+                    <span class="slide-num">17 / 18</span>
+                    <span class="slide-badge">امنیت داده‌های تجاری</span>
+                    <h2 class="slide-title">حریم خصوصی و محرمانگی داده‌ها (Privacy Policy)</h2>
+                </div>
+                <div class="slide-url">
+                    <code>https://donyaye-hooshmand.ir/fa/privacy</code>
+                </div>
+            </div>
+            <div class="slide-content">
+                <div class="browser-bar">
+                    <div class="dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="url-input">🔒 https://donyaye-hooshmand.ir/fa/privacy</div>
+                </div>
+                <div class="img-wrapper">
+                    <img src="screenshots/17_privacy_policy_viewport.png" alt="حریم خصوصی و محرمانگی داده‌ها (Privacy Policy)" class="slide-img" />
+                </div>
+            </div>
+            <div class="slide-footer">
+                <p>سند رسمی محرمانگی اطلاعات تجاری، امنیت استعلام‌ها و سازوکارهای رمزنگاری داده‌ها</p>
+            </div>
+        </div>
+        
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-meta">
+                    <span class="slide-num">18 / 18</span>
+                    <span class="slide-badge">پیشخوان اختصاصی B2B</span>
+                    <h2 class="slide-title">پورتال مشتریان و همکاران (Customer Portal)</h2>
+                </div>
+                <div class="slide-url">
+                    <code>https://donyaye-hooshmand.ir/fa/portal</code>
+                </div>
+            </div>
+            <div class="slide-content">
+                <div class="browser-bar">
+                    <div class="dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="url-input">🔒 https://donyaye-hooshmand.ir/fa/portal</div>
+                </div>
+                <div class="img-wrapper">
+                    <img src="screenshots/18_customer_portal_viewport.png" alt="پورتال مشتریان و همکاران (Customer Portal)" class="slide-img" />
+                </div>
+            </div>
+            <div class="slide-footer">
+                <p>ورود به پیشخوان کاربری اختصاصی برای پیگیری قراردادها، صدور فاکتور و رهگیری بارهای جاری</p>
+            </div>
+        </div>
+        
+</body>
+</html>

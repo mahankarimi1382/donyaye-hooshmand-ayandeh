@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="fa"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>شرکت بازرگانی دنیای هوشمند آینده | تأمین و لجستیک نهاده‌های دامی</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Vazirmatn for Persian typography & Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Material You (M3) Tailwind Extension -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            // Material 3 Color Tokens
+            'm3-primary': '#1b4332',
+            'm3-primary-hover': '#143527',
+            'm3-primary-container': '#d8f3e5',
+            'm3-on-primary': '#ffffff',
+            'm3-on-primary-container': '#052e16',
+            
+            'm3-secondary': '#2d6a4f',
+            'm3-secondary-container': '#e1efe6',
+            'm3-on-secondary-container': '#0f3928',
+            
+            'm3-tertiary': '#d97706',
+            'm3-tertiary-container': '#fef3c7',
+            'm3-on-tertiary': '#ffffff',
+            'm3-on-tertiary-container': '#78350f',
+            
+            'm3-surface': '#f8faf8',
+            'm3-surface-dim': '#eff3f0',
+            'm3-surface-container': '#f1f5f2',
+            'm3-surface-container-high': '#e9efeb',
+            'm3-surface-container-highest': '#e1e8e4',
+            'm3-surface-lowest': '#ffffff',
+            
+            'm3-outline': '#747975',
+            'm3-outline-variant': '#c3c8c3',
+            'm3-on-surface': '#191c1a',
+            'm3-on-surface-variant': '#404943',
+          },
+          fontFamily: {
+            sans: ['Vazirmatn', 'Tahoma', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          borderRadius: {
+            'm3-sm': '0.5rem',
+            'm3-md': '0.75rem',
+            'm3-lg': '1rem',
+            'm3-xl': '1.5rem',
+            'm3-2xl': '2rem',
+            'm3-full': '9999px',
+          },
+          boxShadow: {
+            'm3-1': '0px 1px 3px 1px rgba(0, 0, 0, 0.07), 0px 1px 2px 0px rgba(0, 0, 0, 0.05)',
+            'm3-2': '0px 2px 6px 2px rgba(0, 0, 0, 0.06), 0px 1px 2px 0px rgba(0, 0, 0, 0.04)',
+            'm3-3': '0px 4px 12px 3px rgba(0, 0, 0, 0.08), 0px 2px 4px 0px rgba(0, 0, 0, 0.05)',
+            'm3-search': '0px 4px 20px rgba(27, 67, 50, 0.08)',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #f8faf8;
+      color: #191c1a;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-1 {
+      font-variation-settings: 'FILL' 1;
+    }
+    .num-en {
+      font-family: 'JetBrains Mono', 'Vazirmatn', sans-serif;
+      direction: ltr;
+      display: inline-block;
+    }
+    /* Google M3 ripple & smooth transitions */
+    .m3-press-state {
+      transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+    }
+    .m3-press-state:active {
+      transform: scale(0.98);
+    }
+    /* Material 3 custom scrollbar */
+    ::-webkit-scrollbar {
+      height: 6px;
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f2;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #c3c8c3;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-m3-surface text-m3-on-surface antialiased selection:bg-m3-primary-container selection:text-m3-on-primary-container">
+<!-- BEGIN: Material Ticker Bar -->
+<div class="w-full bg-m3-surface-container-high border-b border-m3-outline-variant/30 text-m3-on-surface-variant text-xs py-2" data-purpose="market-ticker">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between overflow-x-auto whitespace-nowrap scrollbar-none gap-6">
+<div class="flex items-center gap-5 text-xs font-normal">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-m3-tertiary-container text-m3-on-tertiary-container font-medium text-[11px]">
+<span class="material-symbols-outlined text-[14px] fill-1 text-m3-tertiary">sensors</span>
+          پایش زنده پایانه‌ها:
+        </span>
+<span class="hover:text-m3-primary cursor-pointer transition">ذرت زرد برزیلی فله <span class="num-en font-medium text-m3-primary">FOB بندرامام</span></span>
+<span class="text-m3-outline-variant">•</span>
+<span class="hover:text-m3-primary cursor-pointer transition">کنجاله سویا پلیت <span class="num-en font-medium text-m3-primary">44% CP</span> تحویل سیلو</span>
+<span class="text-m3-outline-variant">•</span>
+<span class="hover:text-m3-primary cursor-pointer transition">جو دامی قزاقستان بندر امیرآباد</span>
+<span class="text-m3-outline-variant">•</span>
+<span class="hover:text-m3-primary cursor-pointer transition">دی‌کلسیم فسفات (<span class="num-en font-medium text-m3-primary">DCP 18%</span>)</span>
+</div>
+<div class="hidden md:flex items-center gap-3 text-[11px] text-m3-on-surface-variant/80 font-medium">
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-m3-secondary">verified_user</span>
+          SGS Verified
+        </span>
+<span>•</span>
+<span class="num-en">ISO 9001:2015</span>
+</div>
+</div>
+</div>
+<!-- END: Material Ticker Bar -->
+<!-- BEGIN: Google Material Top App Bar -->
+<header class="w-full bg-m3-surface/90 backdrop-blur-md sticky top-0 z-50 border-b border-m3-outline-variant/30" data-purpose="main-navigation">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+<!-- Brand Logo & Identity (M3 Pill Badge) -->
+<div class="flex items-center gap-3.5">
+<div class="w-12 h-12 rounded-2xl bg-m3-primary text-white flex items-center justify-center shadow-m3-1 transition-transform hover:scale-105">
+<span class="material-symbols-outlined text-2xl text-amber-300">grain</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-lg font-black tracking-tight text-m3-on-surface">دنیای هوشمند آینده</span>
+<span class="hidden sm:inline-block px-2 py-0.5 text-[10px] rounded-full bg-m3-primary-container text-m3-on-primary-container font-semibold">تأمین و لجستیک</span>
+</div>
+<span class="text-[11px] font-mono text-m3-on-surface-variant/80 block leading-tight">Donyaye Hooshmand Ayandeh</span>
+</div>
+</div>
+<!-- Navigation Chips / Action Links -->
+<nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-m3-on-surface-variant">
+<a class="px-3.5 py-2 rounded-full hover:bg-m3-surface-container-high hover:text-m3-primary transition m3-press-state" href="#products">نهاده‌ها و غلات</a>
+<a class="px-3.5 py-2 rounded-full hover:bg-m3-surface-container-high hover:text-m3-primary transition m3-press-state" href="#specs">استانداردها و آنالیز</a>
+<a class="px-3.5 py-2 rounded-full hover:bg-m3-surface-container-high hover:text-m3-primary transition m3-press-state" href="#terminals">لجستیک بندری</a>
+<a class="px-3.5 py-2 rounded-full hover:bg-m3-surface-container-high hover:text-m3-primary transition m3-press-state" href="#stats">داشبورد آمار</a>
+<a class="px-3.5 py-2 rounded-full hover:bg-m3-surface-container-high hover:text-m3-primary transition m3-press-state" href="#contact">تماس با بازرگانی</a>
+</nav>
+<!-- Action Items & Language -->
+<div class="flex items-center gap-2.5">
+<!-- Google Filter/Action Pill: Tracking -->
+<a class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-medium text-m3-on-surface-variant hover:bg-m3-surface-container-high rounded-full transition m3-press-state" href="#tracking">
+<span class="material-symbols-outlined text-[16px]">local_shipping</span>
+<span>رهگیری بارنامه</span>
+</a>
+<!-- Material Language Toggle -->
+<div class="flex items-center bg-m3-surface-container rounded-full p-1 border border-m3-outline-variant/40">
+<span class="px-2.5 py-1 rounded-full bg-m3-primary text-white text-xs font-semibold shadow-xs">فا</span>
+<a class="px-2.5 py-1 text-xs text-m3-on-surface-variant font-medium hover:text-m3-primary" href="#">EN</a>
+</div>
+<!-- M3 Filled Button: RFQ -->
+<a class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-m3-primary text-white text-xs sm:text-sm font-semibold hover:bg-m3-primary-hover shadow-m3-1 hover:shadow-m3-2 m3-press-state" href="#rfq-form">
+<span class="material-symbols-outlined text-[18px]">post_add</span>
+<span>ثبت رسمی RFQ</span>
+</a>
+</div>
+</div>
+</header>
+<!-- END: Google Material Top App Bar -->
+<main class="flex-grow">
+<!-- BEGIN: HeroSection Material Style -->
+<section class="relative pt-8 pb-16 lg:pt-14 lg:pb-24 overflow-hidden">
+<!-- M3 Soft Ambient dynamic blobs -->
+<div class="absolute top-10 right-1/4 w-96 h-96 bg-m3-primary-container/40 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<div class="absolute bottom-10 left-10 w-80 h-80 bg-m3-tertiary-container/30 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Hero Header Texts & Google Material Search -->
+<div class="text-center max-w-3xl mx-auto space-y-4">
+<!-- Google Suggestion Chip Badge -->
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-m3-surface-container-high border border-m3-outline-variant/40 text-m3-secondary text-xs font-semibold shadow-xs">
+<span class="material-symbols-outlined text-sm text-m3-secondary fill-1">verified</span>
+<span>تأمین مستقیم غلات و کنجاله‌های پروتئینی بنادر کشور</span>
+</div>
+<h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-m3-on-surface leading-[1.3] sm:leading-[1.25] tracking-tight">
+            تأمین بی‌واسطه نهاده‌های دامی با آنالیز آزمایشگاهی معتبر
+          </h1>
+<p class="text-sm sm:text-base text-m3-on-surface-variant leading-relaxed font-normal max-w-2xl mx-auto">
+            توزیع تخصصی غلات خوراکی دام و طیور، کنجاله سویا و مکمل‌های فسفاته با گواهی بازرسی بین‌المللی، ترخیص پایدار و بارگیری روزانه از سیلوهای بندر امام خمینی (ره) و بندر امیرآباد.
+          </p>
+</div>
+<!-- Google Flights / Search Inspired Ergonomic Interactive Hub -->
+<div class="mt-10 max-w-4xl mx-auto">
+<div class="bg-m3-surface-lowest rounded-3xl p-4 sm:p-6 shadow-m3-search border border-m3-outline-variant/40">
+<!-- Search Filter Chips -->
+<div class="flex items-center gap-2 overflow-x-auto pb-3 border-b border-m3-outline-variant/30 text-xs">
+<span class="text-m3-on-surface-variant font-medium ml-1">کالاهای فعال:</span>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-m3-primary-container text-m3-on-primary-container font-semibold m3-press-state" type="button">
+<span class="material-symbols-outlined text-sm">check</span>
+                ذرت برزیل
+              </button>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-m3-surface-container hover:bg-m3-surface-container-high text-m3-on-surface-variant font-medium m3-press-state" type="button">
+                کنجاله سویا ۴۴٪
+              </button>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-m3-surface-container hover:bg-m3-surface-container-high text-m3-on-surface-variant font-medium m3-press-state" type="button">
+                جو قزاق / روس
+              </button>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-m3-surface-container hover:bg-m3-surface-container-high text-m3-on-surface-variant font-medium m3-press-state" type="button">
+                دی‌کلسیم فسفات (DCP)
+              </button>
+</div>
+<!-- Material Pill Search & Filter Controls -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-3 mt-4 items-center">
+<!-- Pill 1: Product Query -->
+<div class="md:col-span-4 bg-m3-surface-container/70 hover:bg-m3-surface-container rounded-2xl px-4 py-2.5 flex items-center gap-3 border border-transparent focus-within:border-m3-primary transition">
+<span class="material-symbols-outlined text-m3-secondary text-xl">nutrition</span>
+<div class="w-full text-right">
+<label class="block text-[10px] text-m3-on-surface-variant/80 font-medium">نهاده مورد نظر</label>
+<input class="w-full bg-transparent border-0 p-0 text-xs sm:text-sm font-semibold text-m3-on-surface focus:ring-0 cursor-pointer" type="text" value="ذرت زرد دانه‌ای درجه یک"/>
+</div>
+</div>
+<!-- Pill 2: Port / Terminal -->
+<div class="md:col-span-3 bg-m3-surface-container/70 hover:bg-m3-surface-container rounded-2xl px-4 py-2.5 flex items-center gap-3 border border-transparent focus-within:border-m3-primary transition">
+<span class="material-symbols-outlined text-m3-tertiary text-xl">warehouse</span>
+<div class="w-full text-right">
+<label class="block text-[10px] text-m3-on-surface-variant/80 font-medium">پایانه و بارانداز</label>
+<select class="w-full bg-transparent border-0 p-0 text-xs sm:text-sm font-semibold text-m3-on-surface focus:ring-0 cursor-pointer">
+<option>بندر امام خمینی (ره)</option>
+<option>بندر امیرآباد (شمال)</option>
+<option>تحویل انبار مرکزی</option>
+</select>
+</div>
+</div>
+<!-- Pill 3: Volume / Tonnage -->
+<div class="md:col-span-3 bg-m3-surface-container/70 hover:bg-m3-surface-container rounded-2xl px-4 py-2.5 flex items-center gap-3 border border-transparent focus-within:border-m3-primary transition">
+<span class="material-symbols-outlined text-m3-primary text-xl">scale</span>
+<div class="w-full text-right">
+<label class="block text-[10px] text-m3-on-surface-variant/80 font-medium">حجم درخواستی</label>
+<input class="w-full bg-transparent border-0 p-0 text-xs sm:text-sm font-semibold text-m3-on-surface focus:ring-0 cursor-pointer" type="text" value="۵۰۰ تن (فله کمپرسی)"/>
+</div>
+</div>
+<!-- Action: Google Search Pill Button -->
+<div class="md:col-span-2">
+<button class="w-full h-[52px] rounded-2xl bg-m3-primary hover:bg-m3-primary-hover text-white flex items-center justify-center gap-2 font-semibold text-sm shadow-m3-1 hover:shadow-m3-2 m3-press-state transition" type="button">
+<span class="material-symbols-outlined text-xl">search</span>
+<span>استعلام فوری</span>
+</button>
+</div>
+</div>
+<!-- Fast Status Info Row inside Hub -->
+<div class="mt-4 pt-3 border-t border-m3-outline-variant/20 flex flex-wrap items-center justify-between text-xs text-m3-on-surface-variant gap-2">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
+                  صدور آنی پیش‌فاکتور رسمی در کمتر از ۲ ساعت
+                </span>
+<span class="hidden sm:inline text-m3-outline-variant">•</span>
+<span class="hidden sm:inline">تأییدیه مستقیم سامانه بازارگاه و جهاد کشاورزی</span>
+</div>
+<a class="text-m3-primary font-semibold hover:underline inline-flex items-center gap-1" href="#quick-rfq">
+                استعلام فرم کامل
+                <span class="material-symbols-outlined text-sm rtl:rotate-180">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Google Style Micro-Badges / Trust Indicators -->
+<div class="mt-8 flex flex-wrap items-center justify-center gap-4 text-xs font-medium text-m3-on-surface-variant">
+<div class="inline-flex items-center gap-1.5 bg-m3-surface-container px-3.5 py-1.5 rounded-full border border-m3-outline-variant/30">
+<span class="material-symbols-outlined text-emerald-700 text-sm">verified</span>
+<span>گواهی بازرسی بین‌المللی SGS &amp; IGI</span>
+</div>
+<div class="inline-flex items-center gap-1.5 bg-m3-surface-container px-3.5 py-1.5 rounded-full border border-m3-outline-variant/30">
+<span class="material-symbols-outlined text-amber-600 text-sm">health_and_safety</span>
+<span>کنترل آفلاتوکسین و سموم قارچی (&lt;20 ppb)</span>
+</div>
+<div class="inline-flex items-center gap-1.5 bg-m3-surface-container px-3.5 py-1.5 rounded-full border border-m3-outline-variant/30">
+<span class="material-symbols-outlined text-sky-700 text-sm">receipt_long</span>
+<span>تسویه رسمی ریالی طبق اینکوترمز ۲۰۲۰</span>
+</div>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: Google Material 3 Metric Cards Strip (Analytics Style) -->
+<section class="py-6 bg-m3-surface-container/60 border-y border-m3-outline-variant/30" data-purpose="quick-stats" id="stats">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Metric Card 1 -->
+<div class="bg-m3-surface-lowest p-5 rounded-3xl border border-m3-outline-variant/30 shadow-xs flex items-center gap-4">
+<div class="w-12 h-12 rounded-2xl bg-m3-primary-container text-m3-on-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">history</span>
+</div>
+<div>
+<div class="text-2xl font-black text-m3-on-surface font-mono">۱۵+</div>
+<div class="text-xs text-m3-on-surface-variant font-medium mt-0.5">سال سابقه تخصصی غلات</div>
+</div>
+</div>
+<!-- Metric Card 2 -->
+<div class="bg-m3-surface-lowest p-5 rounded-3xl border border-m3-outline-variant/30 shadow-xs flex items-center gap-4">
+<div class="w-12 h-12 rounded-2xl bg-m3-tertiary-container text-m3-on-tertiary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">conveyor_belt</span>
+</div>
+<div>
+<div class="text-2xl font-black text-m3-on-surface font-mono">۴۸۰,۰۰۰+</div>
+<div class="text-xs text-m3-on-surface-variant font-medium mt-0.5">تن نهاده توزیع‌شده در سال</div>
+</div>
+</div>
+<!-- Metric Card 3 -->
+<div class="bg-m3-surface-lowest p-5 rounded-3xl border border-m3-outline-variant/30 shadow-xs flex items-center gap-4">
+<div class="w-12 h-12 rounded-2xl bg-m3-secondary-container text-m3-on-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">directions_boat</span>
+</div>
+<div>
+<div class="text-2xl font-black text-m3-on-surface font-mono">۲ پایانه</div>
+<div class="text-xs text-m3-on-surface-variant font-medium mt-0.5">اختصاصی بندرامام و امیرآباد</div>
+</div>
+</div>
+<!-- Metric Card 4 -->
+<div class="bg-m3-surface-lowest p-5 rounded-3xl border border-m3-outline-variant/30 shadow-xs flex items-center gap-4">
+<div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-900 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">verified_user</span>
+</div>
+<div>
+<div class="text-2xl font-black text-m3-on-surface font-mono">۱۰۰٪</div>
+<div class="text-xs text-m3-on-surface-variant font-medium mt-0.5">تطابق با استاندارد ملی ایران</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Metric Cards Strip -->
+<!-- BEGIN: Material You Products Section (M3 Cards Grid) -->
+<section class="py-16 bg-m3-surface" data-purpose="strategic-products" id="products">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Section Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+<div>
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-m3-tertiary-container text-m3-on-tertiary-container text-xs font-semibold">
+<span class="material-symbols-outlined text-sm">inventory_2</span>
+<span>سبد کالایی معتبر و فعال</span>
+</div>
+<h2 class="text-2xl sm:text-3xl font-black text-m3-on-surface mt-2">نهاده‌های استراتژیک دام و طیور</h2>
+</div>
+<p class="text-xs sm:text-sm text-m3-on-surface-variant max-w-md">
+            بروزرسانی پیوسته نرخ بر پایه کشف قیمت بنادر، شاخص ترخیص گمرکی و تخصیص مستقیم بارگیری از سیلوها.
+          </p>
+</div>
+<!-- M3 Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Product Card 1: Corn -->
+<div class="bg-m3-surface-lowest rounded-3xl p-6 border border-m3-outline-variant/40 shadow-m3-1 hover:shadow-m3-3 transition-all duration-300 flex flex-col justify-between group">
+<div>
+<!-- Port Tag & Status Chip -->
+<div class="flex items-center justify-between gap-2 mb-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-800 text-[11px] font-semibold border border-emerald-200">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                  آماده بارگیری
+                </span>
+<span class="text-[11px] font-mono text-m3-on-surface-variant/80 bg-m3-surface-container px-2 py-0.5 rounded-lg">1005.90.00</span>
+</div>
+<!-- Product Name -->
+<h3 class="text-lg font-bold text-m3-on-surface group-hover:text-m3-primary transition">ذرت زرد دامی فله</h3>
+<p class="text-xs text-m3-on-surface-variant mt-1">مبدأ: برزیل / درجه یک استاندارد بین‌المللی</p>
+<!-- Lab Analysis Pill List -->
+<div class="my-4 bg-m3-surface-container/60 rounded-2xl p-3.5 space-y-2 text-xs">
+<div class="flex justify-between items-center text-m3-on-surface-variant">
+<span>رطوبت استاندارد:</span>
+<span class="font-bold text-m3-on-surface font-mono">حداکثر ۱۴٪</span>
+</div>
+<div class="flex justify-between items-center text-m3-on-surface-variant">
+<span>دانه‌های شکسته:</span>
+<span class="font-bold text-m3-on-surface font-mono">زیر ۳٪</span>
+</div>
+<div class="flex justify-between items-center text-m3-on-surface-variant">
+<span>حداقل سفارش (MOQ):</span>
+<span class="font-bold text-m3-primary font-mono">۵۰۰ تن</span>
+</div>
+</div>
+</div>
+<!-- Card Bottom Action -->
+<div class="pt-2">
+<a class="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-full bg-m3-surface-container-high hover:bg-m3-primary hover:text-white text-m3-on-surface font-semibold text-xs transition duration-200 m3-press-state" href="#rfq-form">
+<span>استعلام قیمت روز</span>
+<span class="material-symbols-outlined text-sm rtl:rotate-180">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Product Card 2: Soy Meal -->
+<div class="bg-m3-surface-lowest rounded-3xl p-6 border border-m3-outline-variant/40 shadow-m3-1 hover:shadow-m3-3 transition-all duration-300 flex flex-col justify-between group">
+<div>
+<!-- Port Tag & Status Chip -->
+<div class="flex items-center justify-between gap-2 mb-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-800 text-[11px] font-semibold border border-emerald-200">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                  موجودی سیلو
+                </span>
+<span class="text-[11px] font-mono text-m3-on-surface-variant/80 bg-m3-surface-container px-2 py-0.5 rounded-lg">2304.00.00</span>
+</div>
+<!-- Product Name -->
+<h3 class="text-lg font-bold text-m3-on-surface group-hover:text-m3-primary transition">کنجاله سویای پلت ۴۴٪</h3>
+<p class="text-xs text-m3-on-surface-variant mt-1">مبدأ: آرژانتین و برزیل (فله و پلت)</p>
+<!-- Lab Analysis Pill List -->
+<div class="my-4 bg-m3-surface-container/60 rounded-2xl p-3.5 space-y-2 text-xs">
+<div class="flex justify-between items-center text-m3-on-surface-variant">
+<span>پروتئین خام (CP):</span>
+<span class="font-bold text-m3-on-surface font-mono">حداقل ۴۴٪</span>
+</div>
+<div class="flex justify-between items-center text-m3-on-surface-variant">
+<span>فیبر نامحلول:</span>
+<span class="font-bold text-m3-on-surface font-mono">حداکثر ۷٪</span>
+</div>
+<div class="flex justify-between items-center text-m3-on-surface-variant">
+<span>حداقل سفارش (MOQ):</span>
+<span class="font-bold text-m3-primary font-mono">۲۰۰ تن</span>
+</div>
+</div>
+</div>
+<!-- Card Bottom Action -->
+<div class="pt-2">
+<a class="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-full bg-m3-surface-container-high hover:bg-m3-primary hover:text-white text-m3-on-surface font-semibold text-xs transition duration-200 m3-press-state" href="#rfq-form">
+<span>استعلام قیمت روز</span>
+<span class="material-symbols-outlined text-sm rtl:rotate-180">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Product Card 3: Barley -->
+<div class="bg-m3-surface-lowest rounded-3xl p-6 border border-m3-outline-variant/40 shadow-m3-1 hover:shadow-m3-3 transition-all duration-300 flex flex-col justify-between group">
+<div>
+<!-- Port Tag & Status Chip -->
+<div class="flex items-center justify-between gap-2 mb-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-sky-50 text-sky-800 text-[11px] font-semibold border border-sky-200">
+<span class="material-symbols-outlined text-[13px]">anchor</span>
+                  بندر امیرآباد
+                </span>
+<span class="text-[11px] font-mono text-m3-on-surface-variant/80 bg-m3-surface-container px-2 py-0.5 rounded-lg">1003.90.00</span>
+</div>
+<!-- Product Name -->
+<h3 class="text-lg font-bold text-m3-on-surface group-hover:text-m3-primary transition">جو دامی وارداتی خزر</h3>
+<p class="text-xs text-m3-on-surface-variant mt-1">مبدأ: قزاقستان و روسیه (فله بندری)</p>
+<!-- Lab Analysis Pill List -->
+<div class="my-4 bg-m3-surface-container/60 rounded-2xl p-3.5 space-y-2 text-xs">
+<div class="flex justify-between items-center text-m3-on-surface-variant">
+<span>هکتولیتر (تراکم):</span>
+<span class="font-bold text-m3-on-surface font-mono">۶۲+ کیلوگرم</span>
+</div>
+<div class="flex justify-between items-center text-m3-on-surface-variant">
+<span>رطوبت مجاز:</span>
+<span class="font-bold text-m3-on-surface font-mono">حداکثر ۱۲.۵٪</span>
+</div>
+<div class="flex justify-between items-center text-m3-on-surface-variant">
+<span>حداقل سفارش (MOQ):</span>
+<span class="font-bold text-m3-primary font-mono">۳۰۰ تن</span>
+</div>
+</div>
+</div>
+<!-- Card Bottom Action -->
+<div class="pt-2">
+<a class="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-full bg-m3-surface-container-high hover:bg-m3-primary hover:text-white text-m3-on-surface font-semibold text-xs transition duration-200 m3-press-state" href="#rfq-form">
+<span>استعلام قیمت روز</span>
+<span class="material-symbols-outlined text-sm rtl:rotate-180">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Product Card 4: DCP -->
+<div class="bg-m3-surface-lowest rounded-3xl p-6 border border-m3-outline-variant/40 shadow-m3-1 hover:shadow-m3-3 transition-all duration-300 flex flex-col justify-between group">
+<div>
+<!-- Port Tag & Status Chip -->
+<div class="flex items-center justify-between gap-2 mb-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-50 text-amber-800 text-[11px] font-semibold border border-amber-200">
+<span class="material-symbols-outlined text-[13px]">factory</span>
+                  تحویل انبار کارخانه
+                </span>
+<span class="text-[11px] font-mono text-m3-on-surface-variant/80 bg-m3-surface-container px-2 py-0.5 rounded-lg">2835.26.00</span>
+</div>
+<!-- Product Name -->
+<h3 class="text-lg font-bold text-m3-on-surface group-hover:text-m3-primary transition">دی‌کلسیم فسفات (DCP)</h3>
+<p class="text-xs text-m3-on-surface-variant mt-1">تولید استاندارد داخلی / کیسه ۵۰ کیلوگرمی</p>
+<!-- Lab Analysis Pill List -->
+<div class="my-4 bg-m3-surface-container/60 rounded-2xl p-3.5 space-y-2 text-xs">
+<div class="flex justify-between items-center text-m3-on-surface-variant">
+<span>فسفر کل (P):</span>
+<span class="font-bold text-m3-on-surface font-mono">۱۸٪ خالص</span>
+</div>
+<div class="flex justify-between items-center text-m3-on-surface-variant">
+<span>کلسیم معدنی (Ca):</span>
+<span class="font-bold text-m3-on-surface font-mono">۲۲٪</span>
+</div>
+<div class="flex justify-between items-center text-m3-on-surface-variant">
+<span>حداقل سفارش (MOQ):</span>
+<span class="font-bold text-m3-primary font-mono">۲۵ تن</span>
+</div>
+</div>
+</div>
+<!-- Card Bottom Action -->
+<div class="pt-2">
+<a class="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-full bg-m3-surface-container-high hover:bg-m3-primary hover:text-white text-m3-on-surface font-semibold text-xs transition duration-200 m3-press-state" href="#rfq-form">
+<span>استعلام قیمت روز</span>
+<span class="material-symbols-outlined text-sm rtl:rotate-180">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Products Section -->
+<!-- BEGIN: Value Pillars Material Style -->
+<section class="py-16 bg-m3-surface-container/50 border-t border-m3-outline-variant/30" data-purpose="core-value-pillars" id="specs">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-2xl mx-auto mb-12">
+<span class="text-xs font-bold uppercase tracking-wider text-m3-secondary block">زنجیره مطمئن تأمین</span>
+<h2 class="text-2xl sm:text-3xl font-black text-m3-on-surface mt-2">
+            تعهد به شفافیت در کیفیت، سرعت در بارگیری
+          </h2>
+<p class="text-sm text-m3-on-surface-variant mt-3">
+            فرآیند بازرگانی دنیای هوشمند آینده بر پایه تست‌های دقیق بیوشیمیایی و بارگیری منظم بدون اتلاف خواب خودرو شکل گرفته است.
+          </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="bg-m3-surface-lowest rounded-3xl p-7 border border-m3-outline-variant/40 shadow-xs hover:shadow-m3-2 transition duration-200 text-right">
+<div class="w-12 h-12 rounded-2xl bg-m3-primary-container text-m3-on-primary-container flex items-center justify-center mb-5">
+<span class="material-symbols-outlined text-2xl">verified_user</span>
+</div>
+<h3 class="text-lg font-bold text-m3-on-surface">تضمین خلوص و آنالیز SGS</h3>
+<p class="text-sm text-m3-on-surface-variant mt-3 leading-relaxed">
+              ارائه برگه‌های آنالیز رسمی پیش از خروج بار، اندازه‌گیری میزان رطوبت، پروتئین خام، خاکستر نامحلول و کنترل سموم قارچی به ویژه زیرالنون و آفلاتوکسین.
+            </p>
+<div class="mt-6 pt-4 border-t border-m3-outline-variant/20 flex items-center gap-1.5 text-xs text-m3-secondary font-semibold">
+<span class="material-symbols-outlined text-sm">shield</span>
+<span>گواهی سلامت دامپزشکی کل کشور</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-m3-surface-lowest rounded-3xl p-7 border border-m3-outline-variant/40 shadow-xs hover:shadow-m3-2 transition duration-200 text-right">
+<div class="w-12 h-12 rounded-2xl bg-m3-tertiary-container text-m3-on-tertiary-container flex items-center justify-center mb-5">
+<span class="material-symbols-outlined text-2xl">bolt</span>
+</div>
+<h3 class="text-lg font-bold text-m3-on-surface">تخلیه و بارگیری سریع بندری</h3>
+<p class="text-sm text-m3-on-surface-variant mt-3 leading-relaxed">
+              تخصیص نوبت سریع در پایانه‌های اختصاصی بندرامام خمینی (BIK) و امیرآباد؛ تحویل فله به کامیون‌های کمپرسی و لبه‌دار در کوتاه‌ترین زمان ممکن.
+            </p>
+<div class="mt-6 pt-4 border-t border-m3-outline-variant/20 flex items-center gap-1.5 text-xs text-m3-tertiary font-semibold">
+<span class="material-symbols-outlined text-sm">monitoring</span>
+<span>سامانه ردیابی آنلاین بارنامه و باسکول</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-m3-surface-lowest rounded-3xl p-7 border border-m3-outline-variant/40 shadow-xs hover:shadow-m3-2 transition duration-200 text-right">
+<div class="w-12 h-12 rounded-2xl bg-m3-secondary-container text-m3-on-secondary-container flex items-center justify-center mb-5">
+<span class="material-symbols-outlined text-2xl">request_quote</span>
+</div>
+<h3 class="text-lg font-bold text-m3-on-surface">صدور پیش‌فاکتور و تسویه رسمی</h3>
+<p class="text-sm text-m3-on-surface-variant mt-3 leading-relaxed">
+              صدور فاکتور رسمی معتبر در سامانه مودیان و بازارگاه، تسویه حساب‌های شفاف بر اساس قوانین اینکوترمز ۲۰۲۰ و ارائه تضمین‌های لازم به کارخانجات خوراک.
+            </p>
+<div class="mt-6 pt-4 border-t border-m3-outline-variant/20 flex items-center gap-1.5 text-xs text-m3-primary font-semibold">
+<span class="material-symbols-outlined text-sm">account_balance</span>
+<span>امکان تسویه نقدی و اعتباری ریالی</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Value Pillars -->
+<!-- BEGIN: Quick RFQ Google Material Sheet Form -->
+<section class="py-16 bg-m3-surface" id="rfq-form">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="bg-gradient-to-br from-m3-surface-lowest to-m3-surface-container rounded-3xl border border-m3-outline-variant/40 p-8 sm:p-10 shadow-m3-2">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<div class="lg:col-span-5 space-y-4">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-m3-primary-container text-m3-on-primary-container text-xs font-semibold">
+<span class="material-symbols-outlined text-sm">fact_check</span>
+<span>سامانه هوشمند استعلام</span>
+</div>
+<h3 class="text-2xl sm:text-3xl font-black text-m3-on-surface">
+                درخواست قیمت رسمی و پیش‌فاکتور (RFQ)
+              </h3>
+<p class="text-sm text-m3-on-surface-variant leading-relaxed">
+                مشخصات سفارش نهاده خود را وارد کنید تا کارشناسان بازرگانی در کمتر از ۲ ساعت پیش‌فاکتور رسمی ممهور را همراه با آنالیز آزمایشگاهی برای شما ارسال نمایند.
+              </p>
+<div class="space-y-2 pt-2 text-xs text-m3-on-surface-variant font-medium">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-700 text-sm">check_circle</span>
+<span>تسویه از طریق حساب بانکی معتبر شرکتی</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-700 text-sm">check_circle</span>
+<span>امکان بارگیری فوری با هماهنگی پایانه اختصاصی</span>
+</div>
+</div>
+</div>
+<!-- Material 3 Form Input Stack -->
+<div class="lg:col-span-7">
+<form class="space-y-4" onsubmit="event.preventDefault();">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- Name -->
+<div class="bg-m3-surface-lowest rounded-2xl px-4 py-2 border border-m3-outline-variant/40 focus-within:border-m3-primary focus-within:ring-1 focus-within:ring-m3-primary transition">
+<label class="block text-[11px] font-medium text-m3-on-surface-variant">نام متقاضی یا شرکت</label>
+<input class="w-full bg-transparent border-0 p-0 text-sm font-semibold text-m3-on-surface focus:ring-0 mt-0.5 placeholder:text-neutral-400" placeholder="مثال: شرکت خوراک دام البرز" type="text"/>
+</div>
+<!-- Phone -->
+<div class="bg-m3-surface-lowest rounded-2xl px-4 py-2 border border-m3-outline-variant/40 focus-within:border-m3-primary focus-within:ring-1 focus-within:ring-m3-primary transition">
+<label class="block text-[11px] font-medium text-m3-on-surface-variant">شماره تماس مستقیم</label>
+<input class="w-full bg-transparent border-0 p-0 text-sm font-semibold text-m3-on-surface focus:ring-0 mt-0.5 placeholder:text-neutral-400 dir-ltr text-right" placeholder="۰۹۱۲..." type="tel"/>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<!-- Product -->
+<div class="bg-m3-surface-lowest rounded-2xl px-4 py-2 border border-m3-outline-variant/40 focus-within:border-m3-primary transition">
+<label class="block text-[11px] font-medium text-m3-on-surface-variant">نوع نهاده</label>
+<select class="w-full bg-transparent border-0 p-0 text-xs sm:text-sm font-semibold text-m3-on-surface focus:ring-0 mt-0.5">
+<option>ذرت زرد برزیل</option>
+<option>کنجاله سویا ۴۴٪</option>
+<option>جو دامی قزاقستان</option>
+<option>دی‌کلسیم فسفات (DCP)</option>
+</select>
+</div>
+<!-- Port -->
+<div class="bg-m3-surface-lowest rounded-2xl px-4 py-2 border border-m3-outline-variant/40 focus-within:border-m3-primary transition">
+<label class="block text-[11px] font-medium text-m3-on-surface-variant">محل تحویل</label>
+<select class="w-full bg-transparent border-0 p-0 text-xs sm:text-sm font-semibold text-m3-on-surface focus:ring-0 mt-0.5">
+<option>بندر امام خمینی (ره)</option>
+<option>بندر امیرآباد</option>
+<option>تحویل انبار مقصد</option>
+</select>
+</div>
+<!-- Quantity -->
+<div class="bg-m3-surface-lowest rounded-2xl px-4 py-2 border border-m3-outline-variant/40 focus-within:border-m3-primary transition">
+<label class="block text-[11px] font-medium text-m3-on-surface-variant">تناژ تخمینی (تن)</label>
+<input class="w-full bg-transparent border-0 p-0 text-sm font-semibold text-m3-on-surface focus:ring-0 mt-0.5" placeholder="حداقل ۲۰۰ تن" type="number"/>
+</div>
+</div>
+<!-- Submit Button M3 Filled Pill -->
+<div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="text-xs text-m3-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-m3-primary">lock</span>
+<span>اطلاعات استعلام کاملاً محرمانه تلقی می‌شود.</span>
+</div>
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-m3-primary text-white font-bold text-sm shadow-m3-1 hover:shadow-m3-2 hover:bg-m3-primary-hover transition m3-press-state" type="submit">
+<span>ارسال درخواست و صدور پیش‌فاکتور</span>
+<span class="material-symbols-outlined text-base rtl:rotate-180">send</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Quick RFQ Form -->
+<!-- BEGIN: Support CTA Section (Google Dark Emerald Container) -->
+<section class="py-16 bg-m3-primary text-white relative overflow-hidden" data-purpose="cta-section">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="max-w-3xl space-y-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-amber-300 text-xs font-semibold backdrop-blur-sm">
+<span class="material-symbols-outlined text-sm">support_agent</span>
+<span>پشتیبانی و مشاوره تخصصی جیره و بازرگانی</span>
+</span>
+<h2 class="text-2xl sm:text-3xl font-extrabold leading-snug">
+            نیاز به تأمین منظم ماهانه برای کارخانجات خوراک یا فارم‌های صنعتی دارید؟
+          </h2>
+<p class="text-emerald-100 text-sm sm:text-base leading-relaxed">
+            کارشناسان بازرگانی ما در تمامی ساعات کاری آماده بررسی برنامه تأمین بلندمدت، تخصیص خطوط اعتباری و ارائه جدول زمان‌بندی ترخیص کالا هستند.
+          </p>
+<div class="pt-4 flex flex-wrap gap-4 items-center">
+<a class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-amber-400 hover:bg-amber-300 text-neutral-900 font-bold text-sm transition shadow-m3-1 hover:shadow-m3-2 m3-press-state" href="tel:+982188888888">
+<span class="material-symbols-outlined text-lg">call</span>
+<span>تماس مستقیم با واحد بازرگانی: ۰۲۱-۸۸۸۸۸۸۸۸</span>
+</a>
+<a class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium text-sm transition m3-press-state" href="#contact">
+<span class="material-symbols-outlined text-lg">mail</span>
+<span>ارسال درخواست مشاوره کتبی</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Support CTA Section -->
+</main>
+<!-- BEGIN: Google Material 3 Footer -->
+<footer class="bg-m3-surface-container-high border-t border-m3-outline-variant/30 text-m3-on-surface-variant text-sm" data-purpose="site-footer" id="contact">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+<!-- Col 1: About & Info -->
+<div class="space-y-4 md:col-span-1">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-2xl bg-m3-primary flex items-center justify-center text-amber-300 shadow-xs">
+<span class="material-symbols-outlined text-xl">grain</span>
+</div>
+<span class="font-bold text-m3-on-surface text-base">دنیای هوشمند آینده</span>
+</div>
+<p class="text-xs text-m3-on-surface-variant leading-relaxed">
+            شرکت بازرگانی دنیای هوشمند آینده؛ فعال در زمینه تأمین، ترخیص و مدیریت زنجیره تأمین غلات دامی، کنجاله‌ها و ریزمغذی‌های خوراک دام و طیور کشور.
+          </p>
+<div class="text-xs text-m3-on-surface-variant/90 space-y-1 font-mono">
+<p>شماره ثبت: <span class="num-en font-semibold text-m3-on-surface">542198</span></p>
+<p>شناسه ملی: <span class="num-en font-semibold text-m3-on-surface">14008912345</span></p>
+</div>
+</div>
+<!-- Col 2: Quick Links -->
+<div class="space-y-3">
+<h4 class="text-m3-on-surface font-bold text-sm">دسترسی سریع</h4>
+<ul class="space-y-2.5 text-xs text-m3-on-surface-variant">
+<li><a class="hover:text-m3-primary transition inline-flex items-center gap-1" href="#products"><span class="material-symbols-outlined text-xs">chevron_left</span>استعلام نهاده‌های دامی</a></li>
+<li><a class="hover:text-m3-primary transition inline-flex items-center gap-1" href="#specs"><span class="material-symbols-outlined text-xs">chevron_left</span>شاخص‌های آزمایشگاهی و SGS</a></li>
+<li><a class="hover:text-m3-primary transition inline-flex items-center gap-1" href="#tracking"><span class="material-symbols-outlined text-xs">chevron_left</span>پیگیری بارنامه و باسکول</a></li>
+<li><a class="hover:text-m3-primary transition inline-flex items-center gap-1" href="#specs"><span class="material-symbols-outlined text-xs">chevron_left</span>مجوزها و استانداردهای بازرگانی</a></li>
+<li><a class="hover:text-m3-primary transition inline-flex items-center gap-1" href="#"><span class="material-symbols-outlined text-xs">chevron_left</span>قوانین و شرایط فروش اینکوترمز</a></li>
+</ul>
+</div>
+<!-- Col 3: Ports & Terminals -->
+<div class="space-y-3" id="terminals">
+<h4 class="text-m3-on-surface font-bold text-sm">پایانه‌ها و باراندازها</h4>
+<div class="space-y-3 text-xs text-m3-on-surface-variant leading-relaxed">
+<div class="bg-m3-surface-lowest p-3 rounded-2xl border border-m3-outline-variant/30">
+<span class="text-m3-primary font-bold block mb-1">پایانه جنوب (خوزستان):</span>
+<span>بندر امام خمینی (ره)، مجتمع بندری، محوطه سیلوهای غلات فله</span>
+</div>
+<div class="bg-m3-surface-lowest p-3 rounded-2xl border border-m3-outline-variant/30">
+<span class="text-m3-secondary font-bold block mb-1">پایانه شمال (مازندران):</span>
+<span>بندر امیرآباد، انبار اختصاصی ترخیص نهاده‌های خزر</span>
+</div>
+</div>
+</div>
+<!-- Col 4: Central Office & Contact -->
+<div class="space-y-3">
+<h4 class="text-m3-on-surface font-bold text-sm">دفتر مرکزی تهران</h4>
+<div class="space-y-2 text-xs text-m3-on-surface-variant leading-relaxed">
+<p class="flex items-start gap-1.5">
+<span class="material-symbols-outlined text-sm text-m3-primary mt-0.5">location_on</span>
+<span>تهران، خیابان ولیعصر، بالاتر از میدان ونک، برج نگار، طبقه ۱۵، واحد ۴</span>
+</p>
+<p class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-m3-primary">call</span>
+<span>تلفن: <span class="num-en font-semibold text-m3-on-surface">۰۲۱-۸۸۸۸۸۸۸۸</span></span>
+</p>
+<p class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-m3-primary">fax</span>
+<span>فکس: <span class="num-en font-semibold text-m3-on-surface">۰۲۱-۸۸۸۸۸۸۸۹</span></span>
+</p>
+<p class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-m3-primary">mail</span>
+<span>ایمیل بازرگانی: <span class="num-en font-semibold text-m3-on-surface">trade@ayandeh-feed.com</span></span>
+</p>
+</div>
+</div>
+</div>
+<!-- Bottom Bar -->
+<div class="mt-12 pt-6 border-t border-m3-outline-variant/30 text-xs text-m3-on-surface-variant flex flex-col sm:flex-row items-center justify-between gap-4">
+<p>© ۱۴۰۳ تمامی حقوق مادی و معنوی متعلق به شرکت بازرگانی دنیای هوشمند آینده است.</p>
+<div class="flex items-center gap-4 font-mono text-[11px] text-m3-on-surface-variant/80">
+<span>Donyaye Hooshmand Ayandeh Co. Ltd.</span>
+<span>•</span>
+<span>Feed Logistics &amp; Trade</span>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: Google Material 3 Footer -->
+</body></html>

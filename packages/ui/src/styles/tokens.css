@@ -1,0 +1,281 @@
+/*
+ * Karvan design tokens — «ترازنامهٔ بندری» / Port Ledger
+ * Light theme is the @theme default; [data-theme="dark"] overrides the same
+ * custom properties at runtime so every Tailwind utility picks up both modes.
+ * See docs/design/DESIGN_SPEC.md for usage rules.
+ */
+
+@theme {
+  /* ==========================================================================
+   * Bazargani Novin Warm Editorial Tokens (Stitch Modern Global Trade Showcase)
+   * Tailored for Animal Feed & B2B Trade — «دنیای هوشمند آینده»
+   * ========================================================================== */
+
+  /* Core Palette & Brand Accents */
+  --color-primary: #9D3E1A;
+  --color-on-primary: #FFFFFF;
+  --color-primary-container: #BD5630;
+  --color-on-primary-container: #FFFBFF;
+  --color-inverse-primary: #FFB59C;
+
+  --color-secondary: #42655A;
+  --color-on-secondary: #FFFFFF;
+  --color-secondary-container: #C4EBDD;
+  --color-on-secondary-container: #486B60;
+
+  --color-tertiary: #5F5C53;
+  --color-on-tertiary: #FFFFFF;
+  --color-tertiary-container: #78746B;
+  --color-on-tertiary-container: #FFFBFF;
+
+  --color-error: #BA1A1A;
+  --color-on-error: #FFFFFF;
+  --color-error-container: #FFDAD6;
+  --color-on-error-container: #93000A;
+
+  /* Fixed Brand Shades */
+  --color-primary-fixed: #FFDBCF;
+  --color-primary-fixed-dim: #FFB59C;
+  --color-on-primary-fixed: #390C00;
+  --color-on-primary-fixed-variant: #802A05;
+
+  --color-secondary-fixed: #C4EBDD;
+  --color-secondary-fixed-dim: #A9CFC1;
+  --color-on-secondary-fixed: #002019;
+  --color-on-secondary-fixed-variant: #2A4D43;
+
+  --color-tertiary-fixed: #E8E2D7;
+  --color-tertiary-fixed-dim: #CBC6BC;
+  --color-on-tertiary-fixed: #1D1B15;
+  --color-on-tertiary-fixed-variant: #49473F;
+
+  /* Surface Container Hierarchy (Warm Alabaster & Organic Ceramics) */
+  --color-surface: #FFF8F8;
+  --color-surface-dim: #E1D8D9;
+  --color-surface-bright: #FFF8F8;
+  --color-surface-container-lowest: #FFFFFF;
+  --color-surface-container-low: #FBF1F2;
+  --color-surface-container: #F5ECED;
+  --color-surface-container-high: #EFE6E7;
+  --color-surface-container-highest: #E9E0E1;
+  --color-surface-variant: #E9E0E1;
+
+  --color-on-surface: #1E1B1C;
+  --color-on-surface-variant: #56423C;
+  --color-inverse-surface: #342F30;
+  --color-inverse-on-surface: #F8EFEF;
+
+  --color-outline: #8A726A;
+  --color-outline-variant: #DDC0B7;
+  --color-surface-tint: #A0401C;
+
+  /* Dedicated Editorial Trading Accents */
+  --color-terracotta: #D96B43;
+  --color-terracotta-hover: #C55A34;
+  --color-forest: #2A4D43;
+  --color-forest-deep: #1B362F;
+  --color-sand: #E8DFD3;
+  --color-sand-soft: #F2ECE1;
+  --color-espresso: #231F20;
+
+  /* Backward Compatibility Aliases for Existing Components */
+  --color-forest-950: #1B362F;
+  --color-forest-800: #2A4D43;
+  --color-leaf-600: #42655A;
+  --color-grain-500: #D96B43;
+  --color-cream-50: #FAF7F2;
+  --color-ink-900: #1E1B1C;
+  --color-ink-600: #56423C;
+  --color-border: #E8DFD3;
+
+  --color-m3-primary: #9D3E1A;
+  --color-m3-primary-hover: #802A05;
+  --color-m3-primary-container: #FFDBCF;
+  --color-m3-on-primary: #FFFFFF;
+  --color-m3-on-primary-container: #390C00;
+
+  --color-m3-secondary: #2A4D43;
+  --color-m3-secondary-container: #C4EBDD;
+  --color-m3-on-secondary-container: #002019;
+
+  --color-m3-tertiary: #D96B43;
+  --color-m3-tertiary-hover: #C55A34;
+  --color-m3-tertiary-container: #FFDBCF;
+  --color-m3-on-tertiary: #FFFFFF;
+  --color-m3-on-tertiary-container: #390C00;
+
+  --color-m3-surface: #FFF8F8;
+  --color-m3-surface-dim: #E1D8D9;
+  --color-m3-surface-container: #F5ECED;
+  --color-m3-surface-container-high: #EFE6E7;
+  --color-m3-surface-container-highest: #E9E0E1;
+  --color-m3-surface-lowest: #FFFFFF;
+
+  --color-m3-outline: #8A726A;
+  --color-m3-outline-variant: #DDC0B7;
+  --color-m3-on-surface: #1E1B1C;
+  --color-m3-on-surface-variant: #56423C;
+
+  --color-paper: #FAF7F2;
+  --color-sheet: #FFFFFF;
+  --color-well: #F2ECE1;
+
+  --color-ink: #231F20;
+  --color-ink-soft: #5E5750;
+  --color-ink-faint: #8C827A;
+
+  --color-rule: #E8DFD3;
+  --color-rule-strong: #DDC0B7;
+
+  --color-harbor: #9D3E1A;
+  --color-harbor-deep: #802A05;
+
+  --color-stamp: #D96B43;
+
+  --color-clear: #2A4D43;
+  --color-ochre: #D96B43;
+  --color-seal: #BA1A1A;
+  --color-observed: #42655A;
+
+  --color-chart-1: #9D3E1A;
+  --color-chart-2: #2A4D43;
+  --color-chart-3: #D96B43;
+  --color-chart-4: #5F5C53;
+
+  --color-row-hover: #F8F2EA;
+
+  /* Typography */
+  --font-sans: "Vazirmatn Variable", "Vazirmatn", "Segoe UI", "Tahoma", sans-serif;
+  --font-display: "Lalezar", "Vazirmatn Variable", "Vazirmatn", sans-serif;
+  --font-mono: "IBM Plex Mono", "Consolas", ui-monospace, monospace;
+
+  /* Bento & Warm Shadows */
+  --shadow-bento: 0 4px 20px -2px rgba(35, 31, 32, 0.04), 0 2px 6px -1px rgba(217, 107, 67, 0.03);
+  --shadow-bento-hover: 0 12px 28px -4px rgba(35, 31, 32, 0.07), 0 4px 12px -2px rgba(217, 107, 67, 0.06);
+  --shadow-glass: 0 8px 30px rgba(0, 0, 0, 0.04);
+  --shadow-hero: 0 20px 50px rgba(86, 66, 60, 0.06);
+  --shadow-terracotta: 0 8px 25px -4px rgba(157, 62, 26, 0.35);
+
+  --shadow-register: 2px 2px 0 rgb(157 62 26 / 0.08);
+  --shadow-register-lg: 4px 4px 0 rgb(157 62 26 / 0.12);
+
+  --shadow-m3-1: 0px 1px 3px 1px rgba(0, 0, 0, 0.05), 0px 1px 2px 0px rgba(0, 0, 0, 0.03);
+  --shadow-m3-2: 0 4px 20px -2px rgba(35, 31, 32, 0.04), 0 2px 6px -1px rgba(217, 107, 67, 0.03);
+  --shadow-m3-3: 0 12px 28px -4px rgba(35, 31, 32, 0.07), 0 4px 12px -2px rgba(217, 107, 67, 0.06);
+  --shadow-m3-search: 0 8px 30px rgba(0, 0, 0, 0.04);
+  --shadow-google: 0 1px 6px rgba(32, 33, 36, 0.08);
+  --shadow-google-hover: 0 4px 16px rgba(32, 33, 36, 0.12);
+}
+
+[data-theme="dark"] {
+  --color-primary: #FFB59C;
+  --color-on-primary: #5C1900;
+  --color-primary-container: #7E2A08;
+  --color-on-primary-container: #FFDBCF;
+  --color-inverse-primary: #9D3E1A;
+
+  --color-secondary: #A9CFC1;
+  --color-on-secondary: #13372D;
+  --color-secondary-container: #2A4D43;
+  --color-on-secondary-container: #C4EBDD;
+
+  --color-tertiary: #CBC6BC;
+  --color-on-tertiary: #313028;
+  --color-tertiary-container: #47463D;
+  --color-on-tertiary-container: #E8E2D7;
+
+  --color-surface: #1E1B1C;
+  --color-surface-dim: #161314;
+  --color-surface-bright: #342F30;
+  --color-surface-container-lowest: #141112;
+  --color-surface-container-low: #1A1718;
+  --color-surface-container: #231F20;
+  --color-surface-container-high: #2D292A;
+  --color-surface-container-highest: #383435;
+  --color-surface-variant: #56423C;
+
+  --color-on-surface: #F8EFEF;
+  --color-on-surface-variant: #DDC0B7;
+  --color-outline: #A58B83;
+  --color-outline-variant: #56423C;
+
+  --color-terracotta: #FFB59C;
+  --color-forest: #A9CFC1;
+  --color-sand: #383435;
+  --color-sand-soft: #231F20;
+  --color-espresso: #F8EFEF;
+
+  --color-forest-950: #101915;
+  --color-forest-800: #1B362F;
+  --color-leaf-600: #A9CFC1;
+  --color-grain-500: #FFB59C;
+  --color-cream-50: #161314;
+  --color-ink-900: #F8EFEF;
+  --color-ink-600: #DDC0B7;
+  --color-border: #383435;
+
+  --color-m3-primary: #FFB59C;
+  --color-m3-primary-hover: #FFC9B6;
+  --color-m3-primary-container: #7E2A08;
+  --color-m3-on-primary: #5C1900;
+  --color-m3-on-primary-container: #FFDBCF;
+
+  --color-m3-secondary: #A9CFC1;
+  --color-m3-secondary-container: #2A4D43;
+  --color-m3-on-secondary-container: #C4EBDD;
+
+  --color-m3-tertiary: #FFB59C;
+  --color-m3-tertiary-hover: #FFC9B6;
+  --color-m3-tertiary-container: #7E2A08;
+  --color-m3-on-tertiary: #5C1900;
+  --color-m3-on-tertiary-container: #FFDBCF;
+
+  --color-m3-surface: #1E1B1C;
+  --color-m3-surface-dim: #161314;
+  --color-m3-surface-container: #231F20;
+  --color-m3-surface-container-high: #2D292A;
+  --color-m3-surface-container-highest: #383435;
+  --color-m3-surface-lowest: #141112;
+
+  --color-m3-outline: #A58B83;
+  --color-m3-outline-variant: #56423C;
+  --color-m3-on-surface: #F8EFEF;
+  --color-m3-on-surface-variant: #DDC0B7;
+
+  --color-paper: #161314;
+  --color-sheet: #1E1B1C;
+  --color-well: #231F20;
+
+  --color-ink: #F8EFEF;
+  --color-ink-soft: #DDC0B7;
+  --color-ink-faint: #8A726A;
+
+  --color-rule: #383435;
+  --color-rule-strong: #56423C;
+
+  --color-harbor: #FFB59C;
+  --color-harbor-deep: #FFDBCF;
+
+  --color-stamp: #FFB59C;
+
+  --color-clear: #A9CFC1;
+  --color-ochre: #FFB59C;
+  --color-seal: #FFB4AB;
+  --color-observed: #A9CFC1;
+
+  --color-chart-1: #FFB59C;
+  --color-chart-2: #A9CFC1;
+  --color-chart-3: #E8E2D7;
+  --color-chart-4: #CBC6BC;
+
+  --color-row-hover: #262223;
+
+  --shadow-bento: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+  --shadow-bento-hover: 0 12px 28px -4px rgba(0, 0, 0, 0.6);
+  --shadow-glass: 0 8px 30px rgba(0, 0, 0, 0.5);
+  --shadow-hero: 0 20px 50px rgba(0, 0, 0, 0.5);
+  --shadow-terracotta: 0 8px 25px -4px rgba(255, 181, 156, 0.2);
+
+  --shadow-register: 2px 2px 0 rgb(0 0 0 / 0.35);
+  --shadow-register-lg: 4px 4px 0 rgb(0 0 0 / 0.4);
+}

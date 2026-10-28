@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پوستر شبکه صفحات — دنیای هوشمند آینده</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700;800&display=swap');
+
+        body {
+            font-family: Tahoma, 'Segoe UI', Arial, sans-serif;
+            background: #102820;
+            color: #FFFFFF;
+            padding: 40px;
+            margin: 0;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            font-weight: 800;
+            color: #F3CA68;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            font-size: 16px;
+            color: #A3B8AD;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            max-width: 2200px;
+            margin: 0 auto;
+        }
+
+        .grid-tile {
+            background: #1B4332;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(201, 154, 58, 0.3);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tile-bar {
+            padding: 12px 18px;
+            background: rgba(0, 0, 0, 0.25);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .tile-num {
+            background: #C99A3A;
+            color: #102820;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-weight: 800;
+            font-size: 12px;
+        }
+
+        .tile-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #FFFFFF;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .tile-img-box {
+            width: 100%;
+            background: #FAF8F1;
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+        }
+
+        .tile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            display: block;
+        }
+
+        .tile-footer {
+            padding: 8px 16px;
+            background: rgba(0, 0, 0, 0.2);
+            text-align: left;
+            direction: ltr;
+        }
+
+        .tile-footer code {
+            font-size: 11px;
+            color: #A3B8AD;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>پوستر نمایه جامع تمامی صفحات وب‌سایت «دنیای هوشمند آینده»</h1>
+        <p>۱۸ صفحه فعال پلتفرم B2B تأمین نهاده‌های دامی و غلات — چیدمان RTL و Material 3</p>
+    </div>
+    <div class="grid-container">
+        
+        <div class="grid-tile">
+            <div class="tile-bar">
+                <span class="tile-num">01</span>
+                <span class="tile-title">صفحه اصلی (Home Page)</span>
+            </div>
+            <div class="tile-img-box">
+                <img src="screenshots/01_home_viewport.png" alt="صفحه اصلی (Home Page)" class="tile-img" />
+            </div>
+            <div class="tile-footer">
+                <code>/fa</code>
+            </div>
+        </div>
+        
+        <div class="grid-tile">
+            <div class="tile-bar">
+                <span class="tile-num">02</span>
+                <span class="tile-title">کاتالوگ جامع نهاده‌ها (Products Catalog)</span>
+            </div>
+            <div class="tile-img-box">
+                <img src="screenshots/02_products_catalog_viewport.png" alt="کاتالوگ جامع نهاده‌ها (Products Catalog)" class="tile-img" />
+            </div>
+            <div class="tile-footer">
+                <code>/fa/products</code>
+            </div>
+        </div>
+        
+        <div class="grid-tile">
+            <div class="tile-bar">
+                <span class="tile-num">03</span>
+                <span class="tile-title">مشخصات فنی ذرت دامی (Corn Feed Detail)</span>
+            </div>
+            <div class="tile-img-box">
+                <img src="screenshots/03_product_detail_corn_viewport.png" alt="مشخصات فنی ذرت دامی (Corn Feed Detail)" class="tile-img" />
+            </div>
+            <div class="tile-footer">
+                <code>/fa/products/prd_corn_feed</code>
+            </div>
+        </div>
+        
+        <div class="grid-tile">
+            <div class="tile-bar">
+                <span class="tile-num">04</span>
+                <span class="tile-title">مشخصات فنی کنجاله سویا (Soybean Meal Detail)</span>
+            </div>
+            <div class="tile-img-box">
+                <img src="screenshots/04_product_detail_soybean_viewport.png" alt="مشخصات فنی کنجاله سویا (Soybean Meal Detail)" class="tile-img" />
+            </div>
+            <div class="tile-footer">
+                <code>/fa/products/prd_soybean_meal</code>
+            </div>
+        </div>
+        
+        <div class="grid-tile">
+            <div class="tile-bar">
+                <span class="tile-num">05</span>
+                <span class="tile-title">مشخصات فنی جو دامی (Barley Feed Detail)</span>
+            </div>
+            <div class="tile-img-box">
+                <img src="screenshots/05_product_detail_barley_viewport.png" alt="مشخصات فنی جو دامی (Barley Feed Detail)" class="tile-img" />
+            </div>
+            <div class="tile-footer">
+                <code>/fa/products/prd_barley_feed</code>
+            </div>
+        </div>
+        
+        <div class="grid-tile">
+            <div class="tile-bar">
+                <span class="tile-num">06</span>
+                <span class="tile-title">سامانه صدور استعلام رسمی (RFQ Form)</span>
+            </div>
+            <div class="tile-img-box">
+                <img src="screenshots/06_rfq_inquiry_form_viewport.png" alt="سامانه صدور استعلام رسمی (RFQ Form)" class="tile-img" />
+            </div>
+            <div class="tile-footer">
+                <code>/fa/rfq</code>
+            </div>
+        </div>
+        
+        <div class="grid-tile">
+            <div class="tile-bar">
+                <span class="tile-num">07</span>
+                <span class="tile-title">سامانه رهگیری بارنامه و استعلام (Shipment Tracking)</span>
+            </div>
+            <div class="tile-img-box">
+                <img src="screenshots/07_track_shipment_viewport.png" alt="سامانه رهگیری بارنامه و استعلام (Shipment Tracking)" class="tile-img" />
+            </div>
+            <div class="tile-footer">
+                <code>/fa/track</code>
+            </div>
+        </div>
+        
+        <div class="grid-tile">
+            <div class="tile-bar">
+                <span class="tile-num">08</span>
+                <span class="tile-title">کنترل کیفیت و آنالیز آزمایشگاهی (Quality Control)</span>
+            </div>
+            <div class="tile-img-box">
+                <img src="screenshots/08_quality_assays_faq_viewport.png" alt="کنترل کیفیت و آنالیز آزمایشگاهی (Quality Control)" class="tile-img" />
+            </div>
+            <div class="tile-footer">
+                <code>/fa/quality</code>
+            </div>
+        </div>
+        
+        <div class="grid-tile">
+            <div class="tile-bar">
+                <span class="tile-num">09</span>
+                <span class="tile-title">درباره شرکت و توانمندی‌ها (About Us)</span>
+            </div>
+            <div class="tile-img-box">
+                <img src="screenshots/09_about_company_viewport.png" alt="درباره شرکت و توانمندی‌ها (About Us)" class="tile-img" />
+            </div>
+            <div class="tile-footer">
+                <code>/fa/about</code>
+            </div>
+        </div>
+        
+        <div class="grid-tile">
+            <div class="tile-bar">
+                <span class="tile-num">10</span>
+                <span class="tile-title">پایانه‌ها و سوابق تأمین (Export Track Record)</span>
+            </div>
+            <div class="tile-img-box">
+                <img src="screenshots/10_export_history_viewport.png" alt="پایانه‌ها و سوابق تأمین (Export Track Record)" class="tile-img" />
+            </div>
+            <div class="tile-footer">
+                <code>/fa/about/export-history</code>
+            </div>
+        </div>
+        
+        <div class="grid-tile">
+            <div class="tile-bar">
+                <span class="tile-num">11</span>
+                <span class="tile-title">خدمات انبارداری و لجستیک (Services)</span>
+            </div>
+            <div class="tile-img-box">
+                <img src="screenshots/11_services_logistics_viewport.png" alt="خدمات انبارداری و لجستیک (Services)" class="tile-img" />
+            </div>
+            <div class="tile-footer">
+                <code>/fa/services</code>
+            </div>
+        </div>
+        
+        <div class="grid-tile">
+            <div class="tile-bar">
+                <span class="tile-num">12</span>
+                <span class="tile-title">خدمت تخصصی تأمین و سورسینگ (Sourcing)</span>
+            </div>
+            <div class="tile-img-box">
+                <img src="screenshots/12_service_sourcing_viewport.png" alt="خدمت تخصصی تأمین و سورسینگ (Sourcing)" class="tile-img" />
+            </div>
+            <div class="tile-footer">
+                <code>/fa/services/sourcing</code>
+            </div>
+        </div>
+        
+        <div class="grid-tile">
+            <div class="tile-bar">
+                <span class="tile-num">13</span>
+                <span class="tile-title">خدمت حمل‌ونقل و ترانزیت (Freight & Transport)</span>
+            </div>
+            <div class="tile-img-box">
+                <img src="screenshots/13_service_logistics_viewport.png" alt="خدمت حمل‌ونقل و ترانزیت (Freight & Transport)" class="tile-img" />
+            </div>
+            <div class="tile-footer">
+                <code>/fa/services/logistics</code>
+            </div>
+        </div>
+        
+        <div class="grid-tile">
+            <div class="tile-bar">
+                <span class="tile-num">14</span>
+                <span class="tile-title">کریدورها و شرایط تحویل (Markets & Incoterms)</span>
+            </div>
+            <div class="tile-img-box">
+                <img src="screenshots/14_markets_corridors_viewport.png" alt="کریدورها و شرایط تحویل (Markets & Incoterms)" class="tile-img" />
+            </div>
+            <div class="tile-footer">
+                <code>/fa/markets</code>
+            </div>
+        </div>
+        
+        <div class="grid-tile">
+            <div class="tile-bar">
+                <span class="tile-num">15</span>
+                <span class="tile-title">تماس، دفاتر مرکزی و شعب (Contact & Offices)</span>
+            </div>
+            <div class="tile-img-box">
+                <img src="screenshots/15_contact_offices_viewport.png" alt="تماس، دفاتر مرکزی و شعب (Contact & Offices)" class="tile-img" />
+            </div>
+            <div class="tile-footer">
+                <code>/fa/contact</code>
+            </div>
+        </div>
+        
+        <div class="grid-tile">
+            <div class="tile-bar">
+                <span class="tile-num">16</span>
+                <span class="tile-title">شرایط و ضوابط بازرگانی (Terms of Trade)</span>
+            </div>
+            <div class="tile-img-box">
+                <img src="screenshots/16_terms_of_trade_viewport.png" alt="شرایط و ضوابط بازرگانی (Terms of Trade)" class="tile-img" />
+            </div>
+            <div class="tile-footer">
+                <code>/fa/terms</code>
+            </div>
+        </div>
+        
+        <div class="grid-tile">
+            <div class="tile-bar">
+                <span class="tile-num">17</span>
+                <span class="tile-title">حریم خصوصی و محرمانگی داده‌ها (Privacy Policy)</span>
+            </div>
+            <div class="tile-img-box">
+                <img src="screenshots/17_privacy_policy_viewport.png" alt="حریم خصوصی و محرمانگی داده‌ها (Privacy Policy)" class="tile-img" />
+            </div>
+            <div class="tile-footer">
+                <code>/fa/privacy</code>
+            </div>
+        </div>
+        
+        <div class="grid-tile">
+            <div class="tile-bar">
+                <span class="tile-num">18</span>
+                <span class="tile-title">پورتال مشتریان و همکاران (Customer Portal)</span>
+            </div>
+            <div class="tile-img-box">
+                <img src="screenshots/18_customer_portal_viewport.png" alt="پورتال مشتریان و همکاران (Customer Portal)" class="tile-img" />
+            </div>
+            <div class="tile-footer">
+                <code>/fa/portal</code>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

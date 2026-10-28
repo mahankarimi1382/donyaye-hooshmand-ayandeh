@@ -1,0 +1,29 @@
+{
+  "name": "karvan-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Karvan International Trading platform — RFQ, quotation and trade case workflow engine",
+  "license": "UNLICENSED",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "npm run dev --workspace @karvan/web",
+    "build": "npm run build --workspaces --if-present",
+    "test": "vitest run",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "5.0.5",
+    "typescript": "6.0.3",
+    "vitest": "5.0.5"
+  },
+  "allowScripts": {
+    "@swc/core@1.16.20": true,
+    "@parcel/watcher@2.6.0": true
+  }
+}
